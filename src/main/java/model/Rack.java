@@ -44,7 +44,8 @@ public class Rack extends ServerDevice {
     }
 
     public void addServerToRack(Server newServer) throws Exception {
-        if (!allRackServers.contains(newServer)) {
+        // TODO - sprawdzenie czy dana wartość jest w mapie
+        if (!rackServers.containsKey(newServer)) {
             // Jeśli serwer nie jest już przypisany do jakiejś szafy
             if (allRackServers.contains(newServer)) {
                 throw new Exception("Ten serwer jest już przypisany do szafy.");

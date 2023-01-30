@@ -6,6 +6,7 @@ public class Server extends ServerDevice {
     private int serverMountedDisks;
     private final int serverMaxRAMMemory;
     private Rack serverRack;
+    private int serverPositionInRack;
 
     /**
      * The constructor
@@ -23,16 +24,18 @@ public class Server extends ServerDevice {
      */
     private Server(int deviceId, LocalDate devicePurchaseDate, String deviceBrand, String deviceModel,
                    float deviceSerialNumber, int deviceAmortizationTime, boolean deviceInUse,
-                   LocalDate serverDeviceMountDate, int serverMountedDisks, int serverMaxRAMMemory, Rack serverRack) {
+                   LocalDate serverDeviceMountDate, int serverMountedDisks, int serverMaxRAMMemory, Rack serverRack, int serverPositionInRack) {
         super(deviceId, devicePurchaseDate, deviceBrand, deviceModel, deviceSerialNumber, deviceAmortizationTime, deviceInUse, serverDeviceMountDate);
         this.serverMountedDisks = serverMountedDisks;
         this.serverMaxRAMMemory = serverMaxRAMMemory;
         this.serverRack = serverRack;
+        this.serverPositionInRack = serverPositionInRack;
     }
 
     public static Server CreateServer(int deviceId, LocalDate devicePurchaseDate, String deviceBrand, String deviceModel,
                                       float deviceSerialNumber, int deviceAmortizationTime, boolean deviceInUse,
-                                      LocalDate serverDeviceMountDate, int serverMountedDisks, int serverMaxRAMMemory, Rack serverRack) throws Exception {
+                                      LocalDate serverDeviceMountDate, int serverMountedDisks, int serverMaxRAMMemory,
+                                      Rack serverRack, int serverPositionInRack) throws Exception {
         if (serverRack == null) {
             throw new Exception("Dana szafa nie istnieje");
         }
@@ -40,12 +43,14 @@ public class Server extends ServerDevice {
         // Utworzenie części
         Server srv = new Server(deviceId, devicePurchaseDate, deviceBrand, deviceModel,
                 deviceSerialNumber, deviceAmortizationTime, deviceInUse, serverDeviceMountDate,
-                serverMountedDisks, serverMaxRAMMemory, serverRack);
+                serverMountedDisks, serverMaxRAMMemory, serverRack, serverPositionInRack);
 
         serverRack.addServerToRack(srv);
 
         return srv;
     }
 
-
+    public int getServerPositionInRack() {
+        return serverPositionInRack;
+    }
 }

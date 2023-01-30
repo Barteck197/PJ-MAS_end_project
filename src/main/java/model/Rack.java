@@ -49,8 +49,15 @@ public class Rack extends ServerDevice {
             if (allRackServers.contains(newServer)) {
                 throw new Exception("Ten serwer jest już przypisany do szafy.");
             }
-            rackServers.add(newServer);
+            rackServers.put(newServer.getServerPositionInRack(), newServer);
             allRackServers.add(newServer);
         }
+    }
+
+    public Server findServerInRack(int serverPosition) throws Exception {
+        if (!rackServers.containsKey(serverPosition))
+            throw new Exception("Nie ma serwera na podanym miejscu w szafie.");
+
+        return rackServers.get(serverPosition);
     }
 }

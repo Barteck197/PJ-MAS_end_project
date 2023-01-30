@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDate;
+import java.util.*;
 
 public class Rack extends ServerDevice {
     // Wysokość szafy
@@ -11,6 +12,10 @@ public class Rack extends ServerDevice {
     private int rackLength;
     // Liczba wolnych zamków
     private int rackVolume;
+
+    // Atrybuty pod asocjację (z atrybutem)
+    private Map<Integer, Server> rackServers;
+    private static Set<Server> allRackServers;
 
     /**
      * The constructor
@@ -35,5 +40,17 @@ public class Rack extends ServerDevice {
         this.rackWidth = rackWidth;
         this.rackLength = rackLength;
         this.rackVolume = rackVolume;
+        rackServers = new HashMap<>();
+    }
+
+    public void addServerToRack(Server newServer) throws Exception {
+        if (!allRackServers.contains(newServer)) {
+            // Jeśli serwer nie jest już przypisany do jakiejś szafy
+            if (allRackServers.contains(newServer)) {
+                throw new Exception("Ten serwer jest już przypisany do szafy.");
+            }
+            rackServers.add(newServer);
+            allRackServers.add(newServer);
+        }
     }
 }

@@ -41,6 +41,10 @@ public abstract class Device {
         this.deviceInUse = deviceInUse;
     }
 
+    /**
+     * Dodawanie zamówienia do obiekru Sprzęt
+     * @param newPO nowe zamówienie
+     */
     public void addPurchaseOrder(PurchaseOrder newPO){
         if (devicePurchaseOrder == null){
             devicePurchaseOrder = newPO;
@@ -48,6 +52,9 @@ public abstract class Device {
         }
     }
 
+    /**
+     * Usuwanie zamówienia z obiektu sprzet
+     */
     public void removePurchaseOrder(){
         devicePurchaseOrder.removeDevice(this);
         devicePurchaseOrder = null;

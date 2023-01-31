@@ -12,6 +12,8 @@ public abstract class Device {
     private int deviceAmortizationTime;
     private boolean deviceInUse;
 
+    private PurchaseOrder devicePurchaseOrder;
+
     /**
      * The constructor. Klasa abstrakcyjna - sprzęt
      * @param deviceId Id sprzętu
@@ -37,6 +39,18 @@ public abstract class Device {
         this.deviceSerialNumber = deviceSerialNumber;
         this.deviceAmortizationTime = deviceAmortizationTime;
         this.deviceInUse = deviceInUse;
+    }
+
+    public void addPurchaseOrder(PurchaseOrder newPO){
+        if (devicePurchaseOrder == null){
+            devicePurchaseOrder = newPO;
+            newPO.addDevice(this);
+        }
+    }
+
+    public void removePurchaseOrder(){
+        devicePurchaseOrder.removeDevice(this);
+        devicePurchaseOrder = null;
     }
 
     public int getDeviceId() {

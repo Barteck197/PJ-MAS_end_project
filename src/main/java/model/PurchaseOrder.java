@@ -1,6 +1,8 @@
 package model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PurchaseOrder {
     private static int nextPurchaseOrderID = 0;
@@ -8,15 +10,30 @@ public class PurchaseOrder {
     private int purchaseOrderNumber;
     private LocalDate orderPlaceDate;
     private int quantity;
+    private List<Device> orderDevices = new ArrayList<>();
 
     /**
      * Konstruktor klasy: Zamówienie
      * @param orderPlaceDate Data złożenia zamówienia
      * @param quantity Ilość
+     * @param deviceToOrder Sprzęt do zamówienia
      */
-    public PurchaseOrder(LocalDate orderPlaceDate, int quantity) {
+    public PurchaseOrder(LocalDate orderPlaceDate, int quantity, Device deviceToOrder) {
         this.orderPlaceDate = orderPlaceDate;
         this.quantity = quantity;
         this.purchaseOrderNumber = nextPurchaseOrderID++;
+        orderDevices.add(deviceToOrder);
+    }
+
+    public void addDevice(Device newDevice){
+        if(!orderDevices.contains(newDevice)){
+            orderDevices.add(newDevice);
+            newDevice.addPurchaseOrder(this);
+        }
+    }
+
+    public void removeDevice(Device oldDevice){
+        orderDevices.remove(oldDevice);
+        oldDevice.removePurchaseOrder();
     }
 }

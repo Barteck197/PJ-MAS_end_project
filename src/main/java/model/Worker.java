@@ -13,7 +13,7 @@ public class Worker {
     private String workerPosition;
 
     // Associations
-    private List<WorkerDevice> workerDevices;
+    private List<UserDevice> userDevices;
 
     /**
      * Konstruktor klasy pracownik
@@ -22,9 +22,9 @@ public class Worker {
      * @param workerLastName Nazwisko
      * @param workerContract Czy ma umowę na czas nieokreślony
      * @param workerPosition Stanowisko w firmie
-     * @param workerDevice   Sprzęt pracownika
+     * @param userDevice   Sprzęt pracownika
      */
-    public Worker(String workerName, String workerLastName, boolean workerContract, String workerPosition, WorkerDevice workerDevice) {
+    public Worker(String workerName, String workerLastName, boolean workerContract, String workerPosition, UserDevice userDevice) {
         workerId = ++workerNumbers;
         this.workerName = workerName;
         this.workerLastName = workerLastName;
@@ -33,8 +33,8 @@ public class Worker {
 
         // Każdy pracownik musi mieć przynajmniej jeden sprzęt
         // Dlatego przypisujemy sprzęt pracownikowi w konstruktorze
-        workerDevices = new ArrayList<>();
-        workerDevices.add(workerDevice);
+        userDevices = new ArrayList<>();
+        userDevices.add(userDevice);
     }
 
     /**
@@ -42,9 +42,9 @@ public class Worker {
      *
      * @param newDevice nowy sprzęt do dodania
      */
-    public void addWorkerDevice(WorkerDevice newDevice) {
-        if (!workerDevices.contains(newDevice)) {
-            workerDevices.add(newDevice);
+    public void addWorkerDevice(UserDevice newDevice) {
+        if (!userDevices.contains(newDevice)) {
+            userDevices.add(newDevice);
 
             newDevice.setWorkerDeviceOwner(this);
         }
@@ -55,8 +55,8 @@ public class Worker {
      *
      * @param oldDevice stary sprzęt
      */
-    public void removeWorkerDevice(WorkerDevice oldDevice) {
-        workerDevices.remove(oldDevice);
+    public void removeWorkerDevice(UserDevice oldDevice) {
+        userDevices.remove(oldDevice);
 //        oldDevice.rem
     }
 
@@ -80,8 +80,8 @@ public class Worker {
         return workerPosition;
     }
 
-    public List<WorkerDevice> getWorkerDevices() {
-        return workerDevices;
+    public List<UserDevice> getWorkerDevices() {
+        return userDevices;
     }
 
     public boolean hasIndefiniteContract() {

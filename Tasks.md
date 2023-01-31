@@ -54,18 +54,18 @@
 
 ## Klasa `laptop`
 
-- atrybuty
-- dziedziczenie po `sprzęt pracownika`
+- ~~atrybuty~~
+- ~~dziedziczenie po `sprzęt pracownika`~~
 - kompozycja z klasą `komputer`
 
-## Klasa `monitor`
+## ~~Klasa `monitor`~~
 
-- atrybuty
-- dziedziczenie po `sprzęt pracownika`
+- ~~atrybuty~~
+- ~~dziedziczenie po `sprzęt pracownika`~~
 
 ## Klasa `komputer`
 
-- atrybuty
+- ~~atrybuty~~
 - kompozycja z klasą:
   - `serwer`
   - `laptop`

@@ -63,7 +63,7 @@ public abstract class UserDevice extends Device {
     /**
      * Przypisanie pracownika do sprzętu
      *
-     * @param workerDeviceWorker obiekt klasy pracownik4
+     * @param newWorkerDeviceWorker obiekt klasy pracownik4
      */
     public void setWorkerDeviceOwner(Worker newWorkerDeviceWorker) {
         // Jeśli sprzęt pracownika ma właściciela...

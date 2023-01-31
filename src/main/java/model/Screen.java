@@ -7,16 +7,6 @@ public class Screen extends UserDevice{
 
     /**
      * Konstruktor do tworzenia obiektów typu Ekran
-     * @param deviceId
-     * @param devicePurchaseDate
-     * @param deviceBrand
-     * @param deviceModel
-     * @param deviceSerialNumber
-     * @param deviceAmortizationTime
-     * @param deviceInUse
-     * @param workerDeviceLocation
-     * @param workerDeviceIssueDate
-     * @param screenSize
      */
     public Screen(int deviceId, LocalDate devicePurchaseDate, String deviceBrand, String deviceModel,
                   float deviceSerialNumber, int deviceAmortizationTime, boolean deviceInUse,

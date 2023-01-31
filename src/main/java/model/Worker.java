@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Worker {
     // Class attributes
     private int workerId;
@@ -10,8 +13,17 @@ public class Worker {
     private String workerPosition;
 
     // Associations
-    private WorkerDevice workerDevice;
+    private List<WorkerDevice> workerDevices;
 
+    /**
+     * Konstruktor klasy pracownik
+     *
+     * @param workerName     Imię
+     * @param workerLastName Nazwisko
+     * @param workerContract Czy ma umowę na czas nieokreślony
+     * @param workerPosition Stanowisko w firmie
+     * @param workerDevice   Sprzęt pracownika
+     */
     public Worker(String workerName, String workerLastName, boolean workerContract, String workerPosition, WorkerDevice workerDevice) {
         workerId = ++workerNumbers;
         this.workerName = workerName;
@@ -21,7 +33,31 @@ public class Worker {
 
         // Każdy pracownik musi mieć przynajmniej jeden sprzęt
         // Dlatego przypisujemy sprzęt pracownikowi w konstruktorze
-        this.workerDevice = workerDevice;
+        workerDevices = new ArrayList<>();
+        workerDevices.add(workerDevice);
+    }
+
+    /**
+     * Dodawanie sprzętu pracownika do listy jego sprzętu.
+     *
+     * @param newDevice nowy sprzęt do dodania
+     */
+    public void addWorkerDevice(WorkerDevice newDevice) {
+        if (!workerDevices.contains(newDevice)) {
+            workerDevices.add(newDevice);
+
+            newDevice.setWorkerDeviceOwner(this);
+        }
+    }
+
+    /**
+     * Usuwanie sprzętu przypisanego do pracownika
+     *
+     * @param oldDevice stary sprzęt
+     */
+    public void removeWorkerDevice(WorkerDevice oldDevice) {
+        workerDevices.remove(oldDevice);
+//        oldDevice.rem
     }
 
     public int getWorkerId() {
@@ -44,7 +80,9 @@ public class Worker {
         return workerPosition;
     }
 
-    public WorkerDevice getWorkerDevice(){ return workerDevice;}
+    public List<WorkerDevice> getWorkerDevices() {
+        return workerDevices;
+    }
 
     public boolean hasIndefiniteContract() {
         return workerIndefiniteContract;

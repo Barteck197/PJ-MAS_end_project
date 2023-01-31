@@ -5,9 +5,10 @@ import java.time.LocalDate;
 public abstract class WorkerDevice extends Device {
     private site workerDeviceLocation;
     private LocalDate workerDeviceIssueDate;
+    private Worker workerDeviceOwner;
 
     /**
-     * The constructor
+     * Konstruktor klasy Sprzęt pracownika
      *
      * @param deviceId               Id sprzętu
      * @param devicePurchaseDate     Data zakupu sprzętu
@@ -48,5 +49,37 @@ public abstract class WorkerDevice extends Device {
 
     public void setWorkerDeviceIssueDate(LocalDate workerDeviceIssueDate) {
         this.workerDeviceIssueDate = workerDeviceIssueDate;
+    }
+
+    /**
+     * Znajdowanie pracownika przypisanego do sprzętu
+     *
+     * @return obiekt klasy pracownik
+     */
+    public Worker getWorkerDeviceOwner() {
+        return workerDeviceOwner;
+    }
+
+    /**
+     * Przypisanie pracownika do sprzętu
+     *
+     * @param workerDeviceWorker obiekt klasy pracownik4
+     */
+    public void setWorkerDeviceOwner(Worker newWorkerDeviceWorker) {
+        // Jeśli sprzęt pracownika ma właściciela...
+        if (workerDeviceOwner != null) {
+            // ... i jest to inna osoba niż nowy właścicel ...
+            if (workerDeviceOwner != newWorkerDeviceWorker) {
+                // ... to usuwamy połączenie
+                workerDeviceOwner.removeWorkerDevice(this);
+            }
+        }
+        // Tworzymy (nowe) połączenie
+        workerDeviceOwner = newWorkerDeviceWorker;
+        workerDeviceOwner.addWorkerDevice(this);
+    }
+
+    public void removeWorkerDeviceOwner() {
+        workerDeviceOwner = null;
     }
 }

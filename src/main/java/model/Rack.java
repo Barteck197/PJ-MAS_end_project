@@ -43,10 +43,15 @@ public class Rack extends ServerDevice {
         rackServers = new HashMap<>();
     }
 
+    /**
+     * Dodanie serwera do szafy rack.
+     * @param newServer instancja obiektu serwera do zainstalowania w szafie
+     * @throws Exception wyjątek jeśli próba ponownego przypisania już zainstalowanego serwera
+     */
     public void addServerToRack(Server newServer) throws Exception {
-        // TODO - sprawdzenie czy dana wartość jest w mapie
-        if (!rackServers.containsKey(newServer)) {
-            // Jeśli serwer nie jest już przypisany do jakiejś szafy
+        // Jeśli dany serwer nie jest już zainstalowany w tej konkretnej szafie...
+        if (!rackServers.containsKey(newServer.getServerPositionInRack())) {
+            // ... i jeśli serwer nie jest już przypisany do jakiejś szafy
             if (allRackServers.contains(newServer)) {
                 throw new Exception("Ten serwer jest już przypisany do szafy.");
             }
@@ -55,6 +60,12 @@ public class Rack extends ServerDevice {
         }
     }
 
+    /**
+     * Wyszukiwanie serwera w szafie na podstawie kwalifikatora
+     * @param serverPosition kwalifikator
+     * @return obiekt serwera
+     * @throws Exception wyjątek jeśli serwera nie znaleziono w szafie
+     */
     public Server findServerInRack(int serverPosition) throws Exception {
         if (!rackServers.containsKey(serverPosition))
             throw new Exception("Nie ma serwera na podanym miejscu w szafie.");

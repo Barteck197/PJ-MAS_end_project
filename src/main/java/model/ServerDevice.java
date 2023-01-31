@@ -2,10 +2,11 @@ package model;
 
 import java.time.LocalDate;
 
-public abstract class ServerDevice extends Device{
+public abstract class ServerDevice extends Device {
     private LocalDate serverDeviceMountDate;
+
     /**
-     * The constructor
+     * The constructor. Klasa Sprzęt serwerowni
      *
      * @param deviceId               Id sprzętu
      * @param devicePurchaseDate     Data zakupu sprzętu
@@ -14,6 +15,7 @@ public abstract class ServerDevice extends Device{
      * @param deviceSerialNumber     Numer seryjny
      * @param deviceAmortizationTime Czas amortyzacji
      * @param deviceInUse            Czy sprzęt jest w użyciu
+     * @param serverDeviceMountDate  Data montażu sprzętu
      */
     public ServerDevice(int deviceId,
                         LocalDate devicePurchaseDate,

@@ -24,6 +24,15 @@ public class VirtualMachine {
         this.vmServer = vmServer;
     }
 
+    /**
+     * Metoda tworząca maszynę wirtualną w obrębie serwera
+     * @param vmName Nazwa maszyny
+     * @param vmDiskSize Rozmiar dysku VHD
+     * @param vmCPUAssigned Przypisane CPU
+     * @param vmServer serwer do któego ma być przypisana maszyna wirtualna
+     * @return obiekt maszyny wirtualnej
+     * @throws Exception jeśli próba przypisania maszyny do nieistniejącego serwera
+     */
     public static VirtualMachine CreateVirtualMachine(String vmName, float vmDiskSize, float vmCPUAssigned, Server vmServer) throws Exception {
         if(vmServer == null){
             throw new Exception("Podany serwer nie istnieje");

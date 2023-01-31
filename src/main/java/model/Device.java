@@ -2,6 +2,7 @@ package model;
 
 import java.time.LocalDate;
 
+
 public abstract class Device {
     private int deviceId;
     private LocalDate devicePurchaseDate;
@@ -12,7 +13,7 @@ public abstract class Device {
     private boolean deviceInUse;
 
     /**
-     * The constructor
+     * The constructor. Klasa abstrakcyjna - sprzęt
      * @param deviceId Id sprzętu
      * @param devicePurchaseDate Data zakupu sprzętu
      * @param deviceBrand Marka

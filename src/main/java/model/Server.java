@@ -77,7 +77,13 @@ public class Server extends ServerDevice {
         return srv;
     }
 
+    /**
+     * Obsługiwanie dodawania maszyny wirtualnej do serwera
+     * @param newVM instancja obiektu maszyny wirtualnej
+     * @throws Exception wyjątek jeśli nie można dodać wirtualki
+     */
     public void addVMToServer(VirtualMachine newVM) throws Exception {
+        // Jeśli podana maszyna wirtualna nie jest zainstalowana w tym serwerze.
         if (!serverVirtualMachine.contains(newVM)){
             // Jeśli podana wirtualka nie jest już przypisana do jakiegoś serwera...
             if(!allVirtualMachines.contains(newVM)){
@@ -89,6 +95,10 @@ public class Server extends ServerDevice {
         }
     }
 
+    /**
+     * Sprawdzamy gdzie w szafie jest zamontowany serwer
+     * @return miejsce montażu w szafie
+     */
     public int getServerPositionInRack() {
         return serverPositionInRack;
     }

@@ -22,6 +22,7 @@ public abstract class Device {
      * @param deviceAmortizationTime Czas amortyzacji
      * @param deviceInUse Czy sprzęt jest w użyciu
      */
+    // TODO - do zastanowienia czy w klasie abstakcyjnej musi być konstruktor
     public Device(int deviceId,
                   LocalDate devicePurchaseDate,
                   String deviceBrand,

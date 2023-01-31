@@ -1,6 +1,6 @@
 package model;
 
-public enum site {
+public enum Site {
     ON_SITE,
     REMOTE,
     OFF_SITE

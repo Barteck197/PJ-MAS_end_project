@@ -3,7 +3,7 @@ package model;
 import java.time.LocalDate;
 
 public abstract class UserDevice extends Device {
-    private site workerDeviceLocation;
+    private Site workerDeviceLocation;
     private LocalDate workerDeviceIssueDate;
     private Worker workerDeviceOwner;
 
@@ -25,7 +25,7 @@ public abstract class UserDevice extends Device {
                       float deviceSerialNumber,
                       int deviceAmortizationTime,
                       boolean deviceInUse,
-                      site workerDeviceLocation,
+                      Site workerDeviceLocation,
                       LocalDate workerDeviceIssueDate) {
         super(deviceId, devicePurchaseDate, deviceBrand, deviceModel, deviceSerialNumber, deviceAmortizationTime, deviceInUse);
         this.workerDeviceLocation = workerDeviceLocation;
@@ -35,11 +35,11 @@ public abstract class UserDevice extends Device {
     /**
      * Getters and setters for subclass attributes
      */
-    public site getWorkerDeviceLocation() {
+    public Site getWorkerDeviceLocation() {
         return workerDeviceLocation;
     }
 
-    public void setWorkerDeviceLocation(site workerDeviceLocation) {
+    public void setWorkerDeviceLocation(Site workerDeviceLocation) {
         this.workerDeviceLocation = workerDeviceLocation;
     }
 

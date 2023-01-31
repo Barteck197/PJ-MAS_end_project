@@ -69,13 +69,14 @@
 - kompozycja z klasą:
   - `serwer`
   - `laptop`
+- ~~asocjacja z klasą 'software'~~
 - dziedziczenie po `ObjectPlus`
 
 ## Klasa `oprogramowanie`
 
 - atrybuty
 - asocjacja z klasą:
-  - `komputer`
+  - ~~`komputer`~~
   - `zlecenie zakupu`
 - dziedziczenie po `ObjectPlus`
 

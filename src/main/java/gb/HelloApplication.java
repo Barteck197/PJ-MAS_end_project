@@ -14,7 +14,7 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
 
         // Setting title to the Stage
-        stage.setTitle("CSS Example");
+        stage.setTitle("Inventory Manager");
 
         // Adding scene to the stage
         stage.setScene(scene);

@@ -79,7 +79,11 @@ public abstract class UserDevice extends Device {
         workerDeviceOwner.addWorkerDevice(this);
     }
 
-    public void removeWorkerDeviceOwner() {
+    /**
+     * Usunięcie pracownika przypisanego do sprzętu
+     */
+    public void removeUserDeviceOwner(){
+        workerDeviceOwner.removeWorkerDevice(this);
         workerDeviceOwner = null;
     }
 }

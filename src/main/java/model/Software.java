@@ -49,7 +49,7 @@ public abstract class Software {
      * @param newPurchaseOrder zamówienie do przypisania do oprogramowania
      */
     public void addPurchaseOrder(PurchaseOrder newPurchaseOrder) {
-        if (softwarePurhcaseOrder != newPurchaseOrder)){
+        if (softwarePurhcaseOrder != newPurchaseOrder){
             softwarePurhcaseOrder = newPurchaseOrder;
             newPurchaseOrder.addSoftware(this);
         }

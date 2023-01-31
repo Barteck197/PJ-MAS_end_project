@@ -45,6 +45,7 @@ public class Rack extends ServerDevice {
 
     /**
      * Dodanie serwera do szafy rack.
+     *
      * @param newServer instancja obiektu serwera do zainstalowania w szafie
      * @throws Exception wyjątek jeśli próba ponownego przypisania już zainstalowanego serwera
      */
@@ -62,6 +63,7 @@ public class Rack extends ServerDevice {
 
     /**
      * Wyszukiwanie serwera w szafie na podstawie kwalifikatora
+     *
      * @param serverPosition kwalifikator
      * @return obiekt serwera
      * @throws Exception wyjątek jeśli serwera nie znaleziono w szafie
@@ -71,5 +73,13 @@ public class Rack extends ServerDevice {
             throw new Exception("Nie ma serwera na podanym miejscu w szafie.");
 
         return rackServers.get(serverPosition);
+    }
+
+    /**
+     * Usuwanie starego serwera z szafy
+     * @param oldServer stary serwer
+     */
+    public void removeServer(Server oldServer) {
+        rackServers.remove(oldServer.getServerPositionInRack());
     }
 }

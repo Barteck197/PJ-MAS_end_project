@@ -57,7 +57,7 @@ public class Worker {
      */
     public void removeWorkerDevice(UserDevice oldDevice) {
         userDevices.remove(oldDevice);
-//        oldDevice.rem
+        oldDevice.removeUserDeviceOwner();
     }
 
     public int getWorkerId() {

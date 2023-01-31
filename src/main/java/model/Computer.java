@@ -11,6 +11,8 @@ public class Computer {
 
     private List<Software> computerInstaledSoftware;
 
+    private List<Server> servers;
+
     /**
      * Konstruktor do tworzenia obiektów klasy Komputer
      * @param computerCpu taktowanie procesora
@@ -24,6 +26,7 @@ public class Computer {
         this.computerHardDiskVolume = computerHardDiskVolume;
         this.computerOperatingSystem = computerOperatingSystem;
         computerInstaledSoftware = new ArrayList<>();
+        servers = new ArrayList<>();
     }
 
     /**

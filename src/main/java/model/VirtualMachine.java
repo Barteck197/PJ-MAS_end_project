@@ -1,9 +1,11 @@
 package model;
 
+import model.oplus.ObjectPlus;
+
 import java.util.Map;
 import java.util.Set;
 
-public class VirtualMachine {
+public class VirtualMachine extends ObjectPlus {
     private String vmName;
     private float vmDiskSize;
     private float vmCPUAssigned;

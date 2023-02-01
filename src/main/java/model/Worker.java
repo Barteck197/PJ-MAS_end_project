@@ -1,9 +1,11 @@
 package model;
 
+import model.oplus.ObjectPlus;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Worker {
+public class Worker extends ObjectPlus {
     // Class attributes
     private int workerId;
     private static int workerNumbers = 0;

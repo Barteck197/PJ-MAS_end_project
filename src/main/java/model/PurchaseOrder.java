@@ -1,10 +1,12 @@
 package model;
 
+import model.oplus.ObjectPlus;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PurchaseOrder {
+public class PurchaseOrder extends ObjectPlus {
     private static int nextPurchaseOrderID = 0;
 
     private int purchaseOrderNumber;
@@ -22,6 +24,7 @@ public class PurchaseOrder {
      * @param deviceToOrder  Sprzęt do zamówienia
      */
     public PurchaseOrder(LocalDate orderPlaceDate, int quantity, Device deviceToOrder) {
+        super();
         this.orderPlaceDate = orderPlaceDate;
         this.quantity = quantity;
         this.purchaseOrderNumber = nextPurchaseOrderID++;

@@ -1,11 +1,13 @@
 package model;
 
+import model.oplus.ObjectPlus;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Computer {
+public class Computer extends ObjectPlus {
     private float computerCpu;
     private int computerRamMemory;
     private float computerHardDiskVolume;
@@ -34,6 +36,7 @@ public class Computer {
      * @param computerOperatingSystem system operacyjny
      */
     public Computer(float computerCpu, int computerRamMemory, float computerHardDiskVolume, String computerOperatingSystem) {
+        super();
         this.computerCpu = computerCpu;
         this.computerRamMemory = computerRamMemory;
         this.computerHardDiskVolume = computerHardDiskVolume;

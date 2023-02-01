@@ -42,9 +42,9 @@
 - ~~atrybuty~~
 - ~~dziedziczenie po `sprzęt serwerowni`~~
 - kompozycja z klasą 
-  - `szafa rack`
+  - ~~`szafa rack`~~
   - ~~`maszyna wirtualna`~~
-  - `komputer`
+  - ~~`komputer`~~
 
 ## Klasa `maszyna wirtualna`
 
@@ -67,8 +67,8 @@
 
 - ~~atrybuty~~
 - kompozycja z klasą:
-  - `serwer`
-  - `laptop`
+  - ~~`serwer`~~
+  - ~~`laptop`~~
 - ~~asocjacja z klasą 'software'~~
 - dziedziczenie po `ObjectPlus`
 
@@ -77,7 +77,7 @@
 - atrybuty
 - asocjacja z klasą:
   - ~~`komputer`~~
-  - `zlecenie zakupu`
+  - ~~`zlecenie zakupu`~~
 - dziedziczenie po `ObjectPlus`
 
 ## Klasa `licencjonowane`

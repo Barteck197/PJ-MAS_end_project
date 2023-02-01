@@ -1,10 +1,12 @@
 package model;
 
+import model.oplus.ObjectPlus;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Software {
+public abstract class Software extends ObjectPlus {
     private String softwareName;
     private String softwareVersion;
     private String softwareProducer;

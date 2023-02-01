@@ -1,9 +1,11 @@
 package model;
 
+import model.oplus.ObjectPlus;
+
 import java.time.LocalDate;
 
 
-public abstract class Device {
+public abstract class Device extends ObjectPlus {
     private int deviceId;
     private LocalDate devicePurchaseDate;
     private String deviceBrand;
@@ -32,6 +34,7 @@ public abstract class Device {
                   float deviceSerialNumber,
                   int deviceAmortizationTime,
                   boolean deviceInUse) {
+        super();
         this.deviceId = deviceId;
         this.devicePurchaseDate = devicePurchaseDate;
         this.deviceBrand = deviceBrand;

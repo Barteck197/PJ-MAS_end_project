@@ -16,15 +16,15 @@ public abstract class Device {
 
     /**
      * The constructor. Klasa abstrakcyjna - sprzęt
-     * @param deviceId Id sprzętu
-     * @param devicePurchaseDate Data zakupu sprzętu
-     * @param deviceBrand Marka
-     * @param deviceModel Model
-     * @param deviceSerialNumber Numer seryjny
+     *
+     * @param deviceId               Id sprzętu
+     * @param devicePurchaseDate     Data zakupu sprzętu
+     * @param deviceBrand            Marka
+     * @param deviceModel            Model
+     * @param deviceSerialNumber     Numer seryjny
      * @param deviceAmortizationTime Czas amortyzacji
-     * @param deviceInUse Czy sprzęt jest w użyciu
+     * @param deviceInUse            Czy sprzęt jest w użyciu
      */
-    // TODO - do zastanowienia czy w klasie abstakcyjnej musi być konstruktor
     public Device(int deviceId,
                   LocalDate devicePurchaseDate,
                   String deviceBrand,
@@ -43,10 +43,11 @@ public abstract class Device {
 
     /**
      * Dodawanie zamówienia do obiekru Sprzęt
+     *
      * @param newPO nowe zamówienie
      */
-    public void addPurchaseOrder(PurchaseOrder newPO){
-        if (devicePurchaseOrder == null){
+    public void addPurchaseOrder(PurchaseOrder newPO) {
+        if (devicePurchaseOrder == null) {
             devicePurchaseOrder = newPO;
             newPO.addDevice(this);
         }
@@ -55,9 +56,11 @@ public abstract class Device {
     /**
      * Usuwanie zamówienia z obiektu sprzet
      */
-    public void removePurchaseOrder(){
-        devicePurchaseOrder.removeDevice(this);
-        devicePurchaseOrder = null;
+    public void removePurchaseOrder(PurchaseOrder oldPO) {
+        if(devicePurchaseOrder != null){
+            devicePurchaseOrder = null;
+            oldPO.removeDevice(this);
+        }
     }
 
     public int getDeviceId() {
@@ -88,11 +91,11 @@ public abstract class Device {
         return deviceInUse;
     }
 
-    public void retireDevice(){
+    public void retireDevice() {
         deviceInUse = false;
     }
 
-    public void enableDevice(){
+    public void enableDevice() {
         deviceInUse = true;
     }
 }

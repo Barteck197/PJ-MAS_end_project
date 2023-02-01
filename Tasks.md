@@ -3,14 +3,14 @@
 ## Klasa `sprzęt`
 
 - ~~atrybuty~~
-- połączenie z klasą `zlecenie zakupu`
+- ~~połączenie z klasą `zlecenie zakupu`~~
 - dziedziczenie po `ObjectPlus`
 
 ## Klasa `zlecenie zakupu`
 
 - ~~atrybuty~~
-- połączenie z klasą `sprzęt`
-- połączenie z klasą `oprogramowanie`
+- ~~połączenie z klasą `sprzęt`~~
+- ~~połączenie z klasą `oprogramowanie`~~
 - dziedziczenie po `ObjectPlus`
 
 ## Klasa `sprzęt pracowniczy`

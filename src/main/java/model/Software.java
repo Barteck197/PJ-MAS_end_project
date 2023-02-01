@@ -61,7 +61,9 @@ public abstract class Software {
      * @param oldPO
      */
     public void removePurchaseOrder(PurchaseOrder oldPO) {
-        softwarePurhcaseOrder = null;
-        oldPO.removeSoftware(this);
+        if(softwarePurhcaseOrder != null){
+            softwarePurhcaseOrder = null;
+            oldPO.removeSoftware(this);
+        }
     }
 }

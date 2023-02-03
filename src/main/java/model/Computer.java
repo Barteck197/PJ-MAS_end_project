@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.Set;
 
 public class Computer extends ObjectPlus {
-    private float computerCpu;
+    private double computerCpu;
     private int computerRamMemory;
-    private float computerHardDiskVolume;
+    private double computerHardDiskVolume;
     private String computerOperatingSystem;
 
     private List<Software> computerInstaledSoftware;
@@ -35,7 +35,7 @@ public class Computer extends ObjectPlus {
      * @param computerHardDiskVolume  pojemność dysku
      * @param computerOperatingSystem system operacyjny
      */
-    public Computer(float computerCpu, int computerRamMemory, float computerHardDiskVolume, String computerOperatingSystem) {
+    public Computer(double computerCpu, int computerRamMemory, double computerHardDiskVolume, String computerOperatingSystem) {
         super();
         this.computerCpu = computerCpu;
         this.computerRamMemory = computerRamMemory;

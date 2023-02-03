@@ -8,7 +8,6 @@ public abstract class ServerDevice extends Device {
     /**
      * The constructor. Klasa Sprzęt serwerowni
      *
-     * @param deviceId               Id sprzętu
      * @param devicePurchaseDate     Data zakupu sprzętu
      * @param deviceBrand            Marka
      * @param deviceModel            Model
@@ -17,15 +16,14 @@ public abstract class ServerDevice extends Device {
      * @param deviceInUse            Czy sprzęt jest w użyciu
      * @param serverDeviceMountDate  Data montażu sprzętu
      */
-    public ServerDevice(int deviceId,
-                        LocalDate devicePurchaseDate,
+    public ServerDevice(LocalDate devicePurchaseDate,
                         String deviceBrand,
                         String deviceModel,
                         float deviceSerialNumber,
                         int deviceAmortizationTime,
                         boolean deviceInUse,
                         LocalDate serverDeviceMountDate) {
-        super(deviceId, devicePurchaseDate, deviceBrand, deviceModel, deviceSerialNumber, deviceAmortizationTime, deviceInUse);
+        super(devicePurchaseDate, deviceBrand, deviceModel, deviceSerialNumber, deviceAmortizationTime, deviceInUse);
         this.serverDeviceMountDate = serverDeviceMountDate;
     }
 

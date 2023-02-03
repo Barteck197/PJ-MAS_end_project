@@ -6,6 +6,8 @@ import java.time.LocalDate;
 
 
 public abstract class Device extends ObjectPlus {
+    private static int nextDeviceID = 0;
+
     private int deviceId;
     private LocalDate devicePurchaseDate;
     private String deviceBrand;
@@ -19,7 +21,6 @@ public abstract class Device extends ObjectPlus {
     /**
      * The constructor. Klasa abstrakcyjna - sprzęt
      *
-     * @param deviceId               Id sprzętu
      * @param devicePurchaseDate     Data zakupu sprzętu
      * @param deviceBrand            Marka
      * @param deviceModel            Model
@@ -27,15 +28,14 @@ public abstract class Device extends ObjectPlus {
      * @param deviceAmortizationTime Czas amortyzacji
      * @param deviceInUse            Czy sprzęt jest w użyciu
      */
-    public Device(int deviceId,
-                  LocalDate devicePurchaseDate,
+    public Device(LocalDate devicePurchaseDate,
                   String deviceBrand,
                   String deviceModel,
                   float deviceSerialNumber,
                   int deviceAmortizationTime,
                   boolean deviceInUse) {
         super();
-        this.deviceId = deviceId;
+        this.deviceId = nextDeviceID++;
         this.devicePurchaseDate = devicePurchaseDate;
         this.deviceBrand = deviceBrand;
         this.deviceModel = deviceModel;
@@ -60,7 +60,7 @@ public abstract class Device extends ObjectPlus {
      * Usuwanie zamówienia z obiektu sprzet
      */
     public void removePurchaseOrder(PurchaseOrder oldPO) {
-        if(devicePurchaseOrder != null){
+        if (devicePurchaseOrder != null) {
             devicePurchaseOrder = null;
             oldPO.removeDevice(this);
         }

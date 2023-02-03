@@ -20,7 +20,6 @@ public class Rack extends ServerDevice {
     /**
      * The constructor
      *
-     * @param deviceId               Id sprzętu
      * @param devicePurchaseDate     Data zakupu sprzętu
      * @param deviceBrand            Marka
      * @param deviceModel            Model
@@ -30,12 +29,12 @@ public class Rack extends ServerDevice {
      * @param serverDeviceMountDate  Data montażu urządzenia
      */
 
-    public Rack(int deviceId, LocalDate devicePurchaseDate,
+    public Rack(LocalDate devicePurchaseDate,
                 String deviceBrand, String deviceModel,
                 float deviceSerialNumber, int deviceAmortizationTime,
                 boolean deviceInUse, LocalDate serverDeviceMountDate,
                 int rackHeight, int rackWidth, int rackLength, int rackVolume) {
-        super(deviceId, devicePurchaseDate, deviceBrand, deviceModel, deviceSerialNumber, deviceAmortizationTime, deviceInUse, serverDeviceMountDate);
+        super(devicePurchaseDate, deviceBrand, deviceModel, deviceSerialNumber, deviceAmortizationTime, deviceInUse, serverDeviceMountDate);
         this.rackHeight = rackHeight;
         this.rackWidth = rackWidth;
         this.rackLength = rackLength;
@@ -77,6 +76,7 @@ public class Rack extends ServerDevice {
 
     /**
      * Usuwanie starego serwera z szafy
+     *
      * @param oldServer stary serwer
      */
     public void removeServer(Server oldServer) {

@@ -29,4 +29,18 @@ public class DashboardController {
             e.printStackTrace();
         }
     }
+
+    void editServerButtonClicked(ActionEvent event){
+/*        try {
+            // Load the FXML file
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("add-server-view.fxml")));
+
+            // Create a new stage
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root, 680, 480));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }*/
+    }
 }

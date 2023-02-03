@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane fx:controller="gb.DashboardController" prefHeight="640.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="640.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gb.DashboardController">
    <left>
       <VBox alignment="TOP_CENTER" prefHeight="365.0" prefWidth="122.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
@@ -31,10 +31,16 @@
       </Label>
    </top>
    <center>
-      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="serverTableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn prefWidth="75.0" text="Id" />
+          <TableColumn prefWidth="75.0" text="Data zakupu" />
+            <TableColumn prefWidth="75.0" text="Marka" />
+            <TableColumn prefWidth="75.0" text="Model" />
+            <TableColumn prefWidth="75.0" text="Pamięć RAM" />
+            <TableColumn prefWidth="75.0" text="Pojemność dysku" />
+            <TableColumn prefWidth="75.0" text="Taktowanie procesora" />
+            <TableColumn prefWidth="75.0" text="System operacyjny" />
         </columns>
       </TableView>
    </center>

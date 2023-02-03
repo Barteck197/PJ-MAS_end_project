@@ -10,7 +10,6 @@ public abstract class UserDevice extends Device {
     /**
      * Konstruktor klasy Sprzęt pracownika
      *
-     * @param deviceId               Id sprzętu
      * @param devicePurchaseDate     Data zakupu sprzętu
      * @param deviceBrand            Marka
      * @param deviceModel            Model
@@ -18,8 +17,7 @@ public abstract class UserDevice extends Device {
      * @param deviceAmortizationTime Czas amortyzacji
      * @param deviceInUse            Czy sprzęt jest w użyciu
      */
-    public UserDevice(int deviceId,
-                      LocalDate devicePurchaseDate,
+    public UserDevice(LocalDate devicePurchaseDate,
                       String deviceBrand,
                       String deviceModel,
                       float deviceSerialNumber,
@@ -27,7 +25,7 @@ public abstract class UserDevice extends Device {
                       boolean deviceInUse,
                       Site workerDeviceLocation,
                       LocalDate workerDeviceIssueDate) {
-        super(deviceId, devicePurchaseDate, deviceBrand, deviceModel, deviceSerialNumber, deviceAmortizationTime, deviceInUse);
+        super(devicePurchaseDate, deviceBrand, deviceModel, deviceSerialNumber, deviceAmortizationTime, deviceInUse);
         this.workerDeviceLocation = workerDeviceLocation;
         this.workerDeviceIssueDate = workerDeviceIssueDate;
     }
@@ -82,7 +80,7 @@ public abstract class UserDevice extends Device {
     /**
      * Usunięcie pracownika przypisanego do sprzętu
      */
-    public void removeUserDeviceOwner(){
+    public void removeUserDeviceOwner() {
         workerDeviceOwner.removeWorkerDevice(this);
         workerDeviceOwner = null;
     }

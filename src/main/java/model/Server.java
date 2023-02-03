@@ -19,7 +19,6 @@ public class Server extends ServerDevice {
     /**
      * The constructor. Private. There's no Server without RACK.
      *
-     * @param deviceId               Id sprzętu
      * @param devicePurchaseDate     Data zakupu sprzętu
      * @param deviceBrand            Marka
      * @param deviceModel            Model
@@ -30,11 +29,11 @@ public class Server extends ServerDevice {
      * @param serverMaxRAMMemory     Maksymalna ilość pamięci RAM
      * @param serverMountedDisks     Liczba zamontowanych dysków twardych
      */
-    private Server(int deviceId, LocalDate devicePurchaseDate, String deviceBrand, String deviceModel,
+    private Server(LocalDate devicePurchaseDate, String deviceBrand, String deviceModel,
                    float deviceSerialNumber, int deviceAmortizationTime, boolean deviceInUse,
                    LocalDate serverDeviceMountDate, int serverMountedDisks, int serverMaxRAMMemory, Rack serverRack, int serverPositionInRack,
                    Computer computer) {
-        super(deviceId, devicePurchaseDate, deviceBrand, deviceModel, deviceSerialNumber, deviceAmortizationTime, deviceInUse, serverDeviceMountDate);
+        super(devicePurchaseDate, deviceBrand, deviceModel, deviceSerialNumber, deviceAmortizationTime, deviceInUse, serverDeviceMountDate);
         this.serverMountedDisks = serverMountedDisks;
         this.serverMaxRAMMemory = serverMaxRAMMemory;
         this.serverRack = serverRack;
@@ -51,7 +50,7 @@ public class Server extends ServerDevice {
      * @return new Server Object
      * @throws Exception
      */
-    public static Server CreateServer(int deviceId, LocalDate devicePurchaseDate, String deviceBrand, String deviceModel,
+    public static Server CreateServer(LocalDate devicePurchaseDate, String deviceBrand, String deviceModel,
                                       float deviceSerialNumber, int deviceAmortizationTime, boolean deviceInUse,
                                       LocalDate serverDeviceMountDate, int serverMountedDisks, int serverMaxRAMMemory,
                                       Rack serverRack, int serverPositionInRack, Computer computer) throws Exception {
@@ -64,7 +63,7 @@ public class Server extends ServerDevice {
         }
 
         // Utworzenie serwera
-        Server srv = new Server(deviceId, devicePurchaseDate, deviceBrand, deviceModel,
+        Server srv = new Server(devicePurchaseDate, deviceBrand, deviceModel,
                 deviceSerialNumber, deviceAmortizationTime, deviceInUse, serverDeviceMountDate,
                 serverMountedDisks, serverMaxRAMMemory, serverRack, serverPositionInRack, computer);
 
@@ -103,5 +102,37 @@ public class Server extends ServerDevice {
      */
     public int getServerPositionInRack() {
         return serverPositionInRack;
+    }
+
+    public int getServerMountedDisks() {
+        return serverMountedDisks;
+    }
+
+    public void setServerMountedDisks(int serverMountedDisks) {
+        this.serverMountedDisks = serverMountedDisks;
+    }
+
+    public int getServerMaxRAMMemory() {
+        return serverMaxRAMMemory;
+    }
+
+    public Rack getServerRack() {
+        return serverRack;
+    }
+
+    public void setServerRack(Rack serverRack) {
+        this.serverRack = serverRack;
+    }
+
+    public void setServerPositionInRack(int serverPositionInRack) {
+        this.serverPositionInRack = serverPositionInRack;
+    }
+
+    public Computer getServerComputer() {
+        return serverComputer;
+    }
+
+    public void setServerComputer(Computer serverComputer) {
+        this.serverComputer = serverComputer;
     }
 }

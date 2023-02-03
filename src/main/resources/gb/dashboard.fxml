@@ -5,53 +5,88 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="640.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gb.DashboardController">
-   <left>
-      <VBox alignment="TOP_CENTER" prefHeight="365.0" prefWidth="122.0" spacing="10.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button disable="true" mnemonicParsing="false" text="Serwery" />
-            <Button mnemonicParsing="false" text="Szafy rack" />
-            <Button mnemonicParsing="false" text="Laptopy" />
-            <Button mnemonicParsing="false" text="Monitory" />
-            <Button mnemonicParsing="false" text="Oprogramowanie" />
-            <Button mnemonicParsing="false" text="Zlecenia" />
-         </children>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <padding>
-            <Insets top="10.0" />
-         </padding></VBox>
-   </left>
-   <top>
-      <Label text="Lista Serwerów" BorderPane.alignment="CENTER">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-   </top>
-   <center>
-      <TableView fx:id="serverTableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-        <columns>
-          <TableColumn prefWidth="75.0" text="Id" />
-          <TableColumn prefWidth="75.0" text="Data zakupu" />
-            <TableColumn prefWidth="75.0" text="Marka" />
-            <TableColumn prefWidth="75.0" text="Model" />
-            <TableColumn prefWidth="75.0" text="Pamięć RAM" />
-            <TableColumn prefWidth="75.0" text="Pojemność dysku" />
-            <TableColumn prefWidth="75.0" text="Taktowanie procesora" />
-            <TableColumn prefWidth="75.0" text="System operacyjny" />
-        </columns>
-      </TableView>
-   </center>
-   <right>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="addServerButton" alignment="TOP_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addServerButtonClicked" text="Dodaj serwer">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets></Button>
-         </children>
-      </VBox>
-   </right>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.collections.*?>
+<?import model.Server?>
+<BorderPane prefHeight="640.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="gb.DashboardController">
+    <left>
+        <VBox alignment="TOP_CENTER" prefHeight="365.0" prefWidth="122.0" spacing="10.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button disable="true" mnemonicParsing="false" text="Serwery"/>
+                <Button mnemonicParsing="false" text="Szafy rack"/>
+                <Button mnemonicParsing="false" text="Laptopy"/>
+                <Button mnemonicParsing="false" text="Monitory"/>
+                <Button mnemonicParsing="false" text="Oprogramowanie"/>
+                <Button mnemonicParsing="false" text="Zlecenia"/>
+            </children>
+            <opaqueInsets>
+                <Insets/>
+            </opaqueInsets>
+            <padding>
+                <Insets top="10.0"/>
+            </padding>
+        </VBox>
+    </left>
+    <top>
+        <Label text="Lista Serwerów" BorderPane.alignment="CENTER">
+            <font>
+                <Font size="24.0"/>
+            </font>
+        </Label>
+    </top>
+    <right>
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="TOP_LEFT">
+            <children>
+                <Button fx:id="addServerButton" alignment="TOP_RIGHT" contentDisplay="CENTER" mnemonicParsing="false"
+                        onAction="#addServerButtonClicked" text="Dodaj serwer">
+                    <opaqueInsets>
+                        <Insets/>
+                    </opaqueInsets>
+                </Button>
+                <Button mnemonicParsing="false" text="Edytuj serwer"/>
+                <Button mnemonicParsing="false" text="Usuń serwer"/>
+            </children>
+        </VBox>
+    </right>
+    <center>
+        <TableView fx:id="serverTableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="serverId" prefWidth="75.0" text="Id serwera">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="deviceId"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="serverBrand" prefWidth="75.0" text="Marka">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="deviceBrand"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="serverModel" prefWidth="75.0" text="Model">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="deviceModel"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="serverNrOfDisks" prefWidth="75.0" text="Dyski">
+                   <cellValueFactory>
+                      <PropertyValueFactory property="serverMountedDisks"/>
+                   </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="serverRamMemory" prefWidth="75.0" text="RAM">
+                   <cellValueFactory>
+                      <PropertyValueFactory property="serverMaxRAMMemory"/>
+                   </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="serverPosition" prefWidth="125.0" text="poz. w szafie rack">
+                   <cellValueFactory>
+                      <PropertyValueFactory property="serverPositionInRack"/>
+                   </cellValueFactory>
+                </TableColumn>
+            </columns>
+           <items>
+              <FXCollections fx:factory="observableArrayList">
+              </FXCollections>
+           </items>
+        </TableView>
+    </center>
 </BorderPane>

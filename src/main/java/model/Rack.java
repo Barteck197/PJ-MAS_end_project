@@ -15,7 +15,7 @@ public class Rack extends ServerDevice {
 
     // Atrybuty pod asocjację (z atrybutem)
     private Map<Integer, Server> rackServers;
-    private static Set<Server> allRackServers;
+    private static Set<Server> allRackServers = new HashSet<>();
 
     /**
      * The constructor

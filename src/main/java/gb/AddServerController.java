@@ -47,6 +47,10 @@ public class AddServerController {
         stage.close();
     }
 
+    protected void addNewServer(){
+
+    }
+
 
 //    Server srv1 = Server.CreateServer(12,
 //            LocalDate.now(),

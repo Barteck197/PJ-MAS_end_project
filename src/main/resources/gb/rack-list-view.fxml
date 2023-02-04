@@ -36,7 +36,7 @@
         </Label>
     </top>
     <right>
-        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="TOP_LEFT">
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="150.0" spacing="10.0" BorderPane.alignment="TOP_LEFT">
             <children>
                 <Button alignment="TOP_RIGHT" contentDisplay="CENTER" mnemonicParsing="false"
                         onAction="#addRackButtonClicked" text="Dodaj szafę rack"/>

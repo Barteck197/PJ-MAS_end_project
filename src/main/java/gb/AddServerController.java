@@ -4,9 +4,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Computer;
 import model.Rack;
@@ -22,19 +21,19 @@ public class AddServerController {
 
     // Device fields
     @FXML private DatePicker devicePurchaseDate;
-    @FXML private String deviceBrand;
-    @FXML private String deviceModel;
-    @FXML private float deviceSerialNumber;
-    @FXML private int deviceAmortizationTime;
-    @FXML private boolean deviceInUse;
+    @FXML private TextField deviceBrand;
+    @FXML private TextField deviceModel;
+    @FXML private TextField deviceSerialNumber;
+    @FXML private TextField deviceAmortizationTime;
+    @FXML private RadioButton deviceInUse;
 
-    @FXML private LocalDate deviceInstalationTime;
+    @FXML private DatePicker deviceInstalationTime;
 
     // Server fields
-    @FXML private int serverMountedDisks;
-    @FXML private int serverMaxRAMMemory;
+    @FXML private TextField serverMountedDisks;
+    @FXML private TextField serverMaxRAMMemory;
     @FXML private Rack serverRack;
-    @FXML private int serverPositionInRack;
+    @FXML private TextField serverPositionInRack;
     @FXML private Computer serverComputer;
 
 

@@ -5,14 +5,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane fx:controller="gb.AddRackController" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gb.AddRackController">
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
    </padding>
    <bottom>
       <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER_RIGHT">
         <items>
-            <Button fx:id="discardChanges" mnemonicParsing="false" text="Anuluj" onAction="#closeFormAction"/>
+            <Button fx:id="discardChanges" mnemonicParsing="false" onAction="#closeFormAction" text="Anuluj" />
           <Button mnemonicParsing="false" text="Zapisz" />
         </items>
       </ToolBar>
@@ -28,38 +28,39 @@
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="120.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label text="Data zakupu:" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="deviceBrand" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="10.0" />
                </GridPane.margin></TextField>
-            <TextField GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <TextField fx:id="deviceModel" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <Label text="Marka:" GridPane.rowIndex="1" />
             <Label text="Model:" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin></Label>
-            <Label text="Numer seryjny:" GridPane.rowIndex="2" />
-            <Label text="Czas amortyzacji:" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <Label text="Czy w użyciu" GridPane.rowIndex="3" />
-            <Label text="Data montażu:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Label text="Numer seryjny:" GridPane.columnIndex="2" />
+            <Label text="Czas amortyzacji:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Label text="Czy w użyciu" GridPane.rowIndex="2" />
+            <Label text="Data montażu:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="deviceSerialNumber" GridPane.columnIndex="3">
                <GridPane.margin>
                   <Insets right="10.0" />
                </GridPane.margin></TextField>
-            <TextField GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <RadioButton mnemonicParsing="false" selected="true" text="Tak" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Separator prefHeight="0.0" prefWidth="418.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="5" />
-            <Label text="Serwery" GridPane.rowIndex="6" />
-            <ToolBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="7">
+            <TextField fx:id="deviceAmortizationTime" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <RadioButton fx:id="deviceInUse" mnemonicParsing="false" selected="true" text="Tak" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Separator prefHeight="0.0" prefWidth="418.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="4" />
+            <Label text="Serwery" GridPane.rowIndex="7" />
+            <ToolBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="8">
               <items>
                 <Button mnemonicParsing="false" text="Wybierz" />
                   <Button mnemonicParsing="false" text="Dodaj" />
@@ -67,8 +68,8 @@
                   <Button mnemonicParsing="false" text="Usuń" />
               </items>
             </ToolBar>
-            <ListView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="6" />
-            <DatePicker GridPane.columnIndex="1">
+            <ListView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="7" />
+            <DatePicker fx:id="devicePurchaseDate" GridPane.columnIndex="1">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -76,7 +77,31 @@
                   <Insets right="10.0" />
                </GridPane.margin>
             </DatePicker>
-            <DatePicker GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <DatePicker fx:id="deviceInstalationTime" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Label text="Pojemność" GridPane.rowIndex="5" />
+            <Label text="Wysokość" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Label text="Szerokość" GridPane.rowIndex="6" />
+            <Label text="Głębokość" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <TextField fx:id="rackVolume" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets right="100.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="rackWidth" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <GridPane.margin>
+                  <Insets right="100.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="rackHeight" GridPane.columnIndex="3" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets right="100.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="rackDepth" GridPane.columnIndex="3" GridPane.rowIndex="6">
+               <GridPane.margin>
+                  <Insets right="100.0" />
+               </GridPane.margin>
+            </TextField>
          </children>
       </GridPane>
    </center>

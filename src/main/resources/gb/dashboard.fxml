@@ -15,10 +15,10 @@
             <children>
                 <Button disable="true" mnemonicParsing="false" text="Serwery"/>
                 <Button mnemonicParsing="false" text="Szafy rack" onAction="#viewRackList"/>
-                <Button mnemonicParsing="false" text="Laptopy"/>
-                <Button mnemonicParsing="false" text="Monitory"/>
-                <Button mnemonicParsing="false" text="Oprogramowanie"/>
-                <Button mnemonicParsing="false" text="Zlecenia"/>
+                <Button disable="true" mnemonicParsing="false" text="Laptopy"/>
+                <Button disable="true" mnemonicParsing="false" text="Monitory"/>
+                <Button disable="true" mnemonicParsing="false" text="Oprogramowanie"/>
+                <Button disable="true" mnemonicParsing="false" text="Zlecenia"/>
             </children>
             <opaqueInsets>
                 <Insets/>

@@ -7,4 +7,10 @@ module com.s20198_final_project {
 
     opens gb to javafx.fxml;
     exports gb;
+
+    opens model to javafx.fxml;
+    exports model;
+
+    opens utils to javafx.fxml;
+    exports utils;
 }

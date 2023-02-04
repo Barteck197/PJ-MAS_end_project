@@ -14,7 +14,7 @@
         <VBox alignment="TOP_CENTER" prefHeight="365.0" prefWidth="122.0" spacing="10.0" BorderPane.alignment="CENTER">
             <children>
                 <Button disable="true" mnemonicParsing="false" text="Serwery"/>
-                <Button mnemonicParsing="false" text="Szafy rack"/>
+                <Button mnemonicParsing="false" text="Szafy rack" onAction="#viewRackList"/>
                 <Button mnemonicParsing="false" text="Laptopy"/>
                 <Button mnemonicParsing="false" text="Monitory"/>
                 <Button mnemonicParsing="false" text="Oprogramowanie"/>
@@ -62,7 +62,7 @@
                         <PropertyValueFactory property="deviceBrand"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn fx:id="serverModel" prefWidth="75.0" text="Model">
+                <TableColumn fx:id="serverModel" prefWidth="125.0" text="Model">
                     <cellValueFactory>
                         <PropertyValueFactory property="deviceModel"/>
                     </cellValueFactory>

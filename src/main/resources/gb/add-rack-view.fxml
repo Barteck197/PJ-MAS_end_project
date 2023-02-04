@@ -12,7 +12,7 @@
    <bottom>
       <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER_RIGHT">
         <items>
-            <Button mnemonicParsing="false" text="Anuluj" />
+            <Button fx:id="discardChanges" mnemonicParsing="false" text="Anuluj" onAction="#closeFormAction"/>
           <Button mnemonicParsing="false" text="Zapisz" />
         </items>
       </ToolBar>

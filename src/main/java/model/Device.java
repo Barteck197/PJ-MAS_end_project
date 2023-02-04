@@ -1,6 +1,6 @@
 package model;
 
-import model.oplus.ObjectPlus;
+import utils.ObjectPlus;
 
 import java.time.LocalDate;
 

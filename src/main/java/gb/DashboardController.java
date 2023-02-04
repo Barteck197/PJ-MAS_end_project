@@ -18,8 +18,10 @@ import javafx.util.Callback;
 import model.Computer;
 import model.Rack;
 import model.Server;
+import utils.ObjectPlus;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class DashboardController {
@@ -27,7 +29,7 @@ public class DashboardController {
     @FXML
     private Button addServerButton;
 
-    Computer computer = new Computer(2.4, 16, 256, "Windows 11");
+/*    Computer computer = new Computer(2.4, 16, 256, "Windows 11");
 
     Rack rack = new Rack(LocalDate.of(2022, 11, 26), "Enoc System", "NS6618", 613414, 2, true,
             LocalDate.of(2022, 12, 01), 187, 60, 60, 19);
@@ -40,13 +42,11 @@ public class DashboardController {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-    }
-
-
-    ObservableList<Server> servers = FXCollections.observableArrayList(server1);
+    }*/
 
     @FXML
-    private TableView<Server> serverTableView;
+    private TableView<Server> serverTableView = new TableView<>();
+    private ObservableList<Server> serverObservableList = FXCollections.observableArrayList();
 
     @FXML
     private TableColumn<Server, Integer> serverId;
@@ -61,8 +61,15 @@ public class DashboardController {
     @FXML
     private TableColumn<Server, Integer> serverPosition;
 
+    @FXML
+    public void initialize() throws Exception{
+        ArrayList<Server> servers = (ArrayList<Server>) ObjectPlus.getExtent(Server.class);
+        serverObservableList.addAll(servers);
+        serverTableView.setItems(serverObservableList);
+    }
+
     public DashboardController() {
-        serverTableView = new TableView<>();
+/*        serverTableView = new TableView<>();
 //        serverTableView.setEditable(false);
 //
         serverId = new TableColumn<>("Id serwera");
@@ -79,7 +86,7 @@ public class DashboardController {
         serverRamMemory.setCellValueFactory(new PropertyValueFactory<>("RAM"));
         serverPosition.setCellValueFactory(new PropertyValueFactory<>("poz. w szafie rack"));
 
-        serverTableView.setItems(servers);
+        serverTableView.setItems(servers);*/
 //        serverTableView.getColumns().addAll(serverId, serverBrand, serverModel, serverNrOfDisks, serverRamMemory, serverPosition);
 //        System.out.println(servers.get(0));
     }
@@ -99,6 +106,20 @@ public class DashboardController {
         }
     }
 
+    @FXML
+    void viewRackList(ActionEvent event){
+        try {
+            Parent nextView = FXMLLoader.load(getClass().getResource("rack-list-view.fxml"));
+            Scene nextScene = new Scene(nextView);
+
+            Stage currentStage = (Stage) serverTableView.getScene().getWindow();
+            currentStage.setScene(nextScene);
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    @FXML
     void editServerButtonClicked(ActionEvent event) {
 /*        try {
             // Load the FXML file
@@ -111,5 +132,10 @@ public class DashboardController {
         } catch (Exception e) {
             e.printStackTrace();
         }*/
+    }
+
+    @FXML
+    void deleteServer(ActionEvent event){
+
     }
 }

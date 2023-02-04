@@ -1,9 +1,6 @@
 package model;
 
-import model.oplus.ObjectPlus;
-
-import java.util.Map;
-import java.util.Set;
+import utils.ObjectPlus;
 
 public class VirtualMachine extends ObjectPlus {
     private String vmName;

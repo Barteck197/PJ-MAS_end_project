@@ -16,24 +16,27 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-public class AddServerController implements Initializable{
+public class AddServerController {
     @FXML private Button serverSaveForm;
     @FXML private Button serverExitForm;
-    @FXML private TableView<Server> serverTableView;
 
-    // Device fields:
-    @FXML private int deviceId;
-    @FXML private LocalDate devicePurchaseDate;
+    // Device fields
+    @FXML private DatePicker devicePurchaseDate;
     @FXML private String deviceBrand;
     @FXML private String deviceModel;
     @FXML private float deviceSerialNumber;
     @FXML private int deviceAmortizationTime;
     @FXML private boolean deviceInUse;
 
-    // Server fields
+    @FXML private LocalDate deviceInstalationTime;
 
-    @FXML
-    private DatePicker serverPurchaseDate;
+    // Server fields
+    @FXML private int serverMountedDisks;
+    @FXML private int serverMaxRAMMemory;
+    @FXML private Rack serverRack;
+    @FXML private int serverPositionInRack;
+    @FXML private Computer serverComputer;
+
 
 /*    @FXML
     public void initialize() throws Exception{
@@ -44,13 +47,13 @@ public class AddServerController implements Initializable{
 
     @FXML
     private void validateForm(ActionEvent event) {
-        System.out.println(serverPurchaseDate.getValue());
+        System.out.println(devicePurchaseDate.getValue());
         addNewServer(event);
     }
 
     @FXML
     private void closeFormAction() {
-        Stage stage = (Stage) serverPurchaseDate.getScene().getWindow();
+        Stage stage = (Stage) devicePurchaseDate.getScene().getWindow();
         stage.close();
     }
 
@@ -58,10 +61,5 @@ public class AddServerController implements Initializable{
     protected void addNewServer(ActionEvent event) {
         ObservableList<Server> servers;
 //        servers.add(new Server())
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 }

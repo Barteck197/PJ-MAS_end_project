@@ -34,17 +34,14 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label text="Data zakupu:" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="deviceBrand" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="10.0" />
                </GridPane.margin></TextField>
-            <TextField GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <TextField fx:id="deviceModel" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <Label text="Marka:" GridPane.rowIndex="1" />
             <Label text="Model:" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <GridPane.margin>
@@ -55,50 +52,20 @@
             <Label text="Czy w użyciu" GridPane.rowIndex="3" />
             <Label text="Data montażu:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
             <Label text="Liczba dysków:" GridPane.rowIndex="6" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="deviceSerialNumber" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets right="10.0" />
                </GridPane.margin></TextField>
-            <TextField GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <TextField fx:id="deviceAmortizationTime" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <TextField fx:id="serverMountedDisks" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <GridPane.margin>
                   <Insets right="10.0" />
                </GridPane.margin></TextField>
-            <RadioButton mnemonicParsing="false" selected="true" text="Tak" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label text="Ilość RAM:" GridPane.rowIndex="7" />
-            <Label text="Taktowanie procesora:" GridPane.rowIndex="8" />
+            <RadioButton fx:id="deviceInUse" mnemonicParsing="false" selected="true" text="Tak" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Separator prefHeight="0.0" prefWidth="418.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="5" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="7">
-               <GridPane.margin>
-                  <Insets right="10.0" />
-               </GridPane.margin>
-            </TextField>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="8">
-               <GridPane.margin>
-                  <Insets right="10.0" />
-               </GridPane.margin>
-            </TextField>
-            <TextField GridPane.columnIndex="3" GridPane.rowIndex="7" />
-            <Label text="Maksymalny RAM:" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-            <Label text="Pojemność dysków:" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-            <TextField GridPane.columnIndex="3" GridPane.rowIndex="6" />
-            <TextField GridPane.columnIndex="3" GridPane.rowIndex="8">
-               <GridPane.margin>
-                  <Insets right="10.0" />
-               </GridPane.margin>
-            </TextField>
-            <Label text="System operacyjny" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-            <Label text="Zainstalowane oprogramowanie" GridPane.rowIndex="9" />
-            <ToolBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="10">
-              <items>
-                <Button mnemonicParsing="false" text="Wybierz" />
-                  <Button mnemonicParsing="false" text="Dodaj" />
-                  <Button mnemonicParsing="false" text="Edytuj" />
-                  <Button mnemonicParsing="false" text="Usuń" />
-              </items>
-            </ToolBar>
-            <ListView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="9" />
-            <DatePicker fx:id="serverPurchaseDate" GridPane.columnIndex="1">
+            <TextField fx:id="serverMaxRAMMemory" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <Label text="Maksymalny RAM:" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <DatePicker fx:id="devicePurchaseDate" GridPane.columnIndex="1">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -106,7 +73,11 @@
                   <Insets right="10.0" />
                </GridPane.margin>
             </DatePicker>
-            <DatePicker GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <DatePicker fx:id="deviceInstalationTime" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Label text="Wybierz szafę rack" GridPane.rowIndex="7" />
+            <ChoiceBox prefHeight="25.0" prefWidth="156.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label text="Miejsce w szafie rack" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+            <ChoiceBox layoutX="156.0" layoutY="298.0" prefHeight="25.0" prefWidth="168.0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
          </children>
       </GridPane>
    </center>

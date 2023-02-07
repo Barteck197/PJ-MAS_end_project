@@ -74,8 +74,8 @@ public class Main extends Application {
             oin.close();
 
             serverList.addAll((Collection<? extends Server>) ObjectPlus.getExtent(Server.class));
-            rackList.add((Rack) ObjectPlus.getExtent(Rack.class));
-            computerList.add((Computer) ObjectPlus.getExtent(Computer.class));
+            rackList.addAll((Collection<? extends Rack>) ObjectPlus.getExtent(Rack.class));
+            computerList.addAll((Collection<? extends Computer>) ObjectPlus.getExtent(Computer.class));
         } else {
             System.out.println("No file. Creating sample data...");
             Computer computer = new Computer(2.4, 16, 256, "Windows 11");

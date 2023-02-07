@@ -3,19 +3,16 @@ package gb;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Computer;
 import model.Rack;
 import model.Server;
 
-import java.net.URL;
-import java.time.LocalDate;
-import java.util.ResourceBundle;
+public class ServerController {
 
-public class AddServerController {
+    private Server viewServer;
+
     @FXML private Button serverSaveForm;
     @FXML private Button serverExitForm;
 
@@ -32,16 +29,32 @@ public class AddServerController {
     // Server fields
     @FXML private TextField serverMountedDisks;
     @FXML private TextField serverMaxRAMMemory;
-    @FXML private Rack serverRack;
+//    @FXML private Rack serverRack;
     @FXML private TextField serverPositionInRack;
-    @FXML private Computer serverComputer;
+//    @FXML private Computer serverComputer;
 
+    public ServerController(Server viewServer) {
+        this.viewServer = viewServer;
+    }
 
-/*    @FXML
-    public void initialize() throws Exception{
+    @FXML
+    public void initialize() {
+        setServer(viewServer);
+    }
 
-    }*/
+    @FXML
+    void setServer(Server server){
+        devicePurchaseDate.setValue(server.getDevicePurchaseDate());
+        deviceBrand.setText(server.getDeviceBrand());
+        deviceModel.setText(server.getDeviceModel());
+        deviceSerialNumber.setText(String.valueOf(server.getDeviceSerialNumber()));
+        deviceAmortizationTime.setText(String.valueOf(server.getDeviceAmortizationTime()));
+        deviceInUse.setSelected(server.isDeviceInUse());
+        deviceInstalationTime.setValue(server.getServerDeviceMountDate());
 
+        serverMountedDisks.setText(String.valueOf(server.getServerMountedDisks()));
+        serverMaxRAMMemory.setText(String.valueOf(server.getServerMaxRAMMemory()));
+    }
 
 
     @FXML

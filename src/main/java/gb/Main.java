@@ -15,19 +15,21 @@ import utils.ObjectPlus;
 import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
-public class HelloApplication extends Application {
+public class Main extends Application {
     public static Server server;
     public static List<Server> serverList = new ArrayList<>();
     public static List<Rack> rackList = new ArrayList<>();
+    public static List<Computer> computerList = new ArrayList<>();
 
     public final static String pathToData = "data/data.bin";
 
     @Override
     public void start(Stage stage) throws IOException {
 //        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dashboard.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("dashboard.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 960, 640);
         stage.setTitle("Inventory Manager");
         stage.setScene(scene);
@@ -70,6 +72,10 @@ public class HelloApplication extends Application {
             ObjectInputStream oin = new ObjectInputStream(new FileInputStream(serializedDataFile));
             ObjectPlus.readExtents(oin);
             oin.close();
+
+            serverList.addAll((Collection<? extends Server>) ObjectPlus.getExtent(Server.class));
+            rackList.add((Rack) ObjectPlus.getExtent(Rack.class));
+            computerList.add((Computer) ObjectPlus.getExtent(Computer.class));
         } else {
             System.out.println("No file. Creating sample data...");
             Computer computer = new Computer(2.4, 16, 256, "Windows 11");
@@ -82,6 +88,7 @@ public class HelloApplication extends Application {
 
             serverList.add(server);
             rackList.add(rack);
+            computerList.add(computer);
         }
     }
 

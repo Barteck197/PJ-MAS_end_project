@@ -1,9 +1,5 @@
 package gb;
 
-import javafx.beans.Observable;
-import javafx.beans.property.Property;
-import javafx.beans.property.ReadOnlyObjectWrapper;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -11,16 +7,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
-import javafx.util.Callback;
-import model.Computer;
-import model.Rack;
 import model.Server;
 import utils.ObjectPlus;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -66,29 +59,6 @@ public class DashboardController {
         ArrayList<Server> servers = (ArrayList<Server>) ObjectPlus.getExtent(Server.class);
         serverObservableList.addAll(servers);
         serverTableView.setItems(serverObservableList);
-    }
-
-    public DashboardController() {
-/*        serverTableView = new TableView<>();
-//        serverTableView.setEditable(false);
-//
-        serverId = new TableColumn<>("Id serwera");
-        serverBrand = new TableColumn<>("Marka");
-        serverModel = new TableColumn<>("Model");
-        serverNrOfDisks = new TableColumn<>("Dyski");
-        serverRamMemory = new TableColumn<>("RAM");
-        serverPosition = new TableColumn<>("poz. w szafie rack");
-//
-        serverId.setCellValueFactory(new PropertyValueFactory<>("Id serwera"));
-        serverBrand.setCellValueFactory(new PropertyValueFactory<>("Marka"));
-        serverModel.setCellValueFactory(new PropertyValueFactory<>("Model"));
-        serverNrOfDisks.setCellValueFactory(new PropertyValueFactory<>("Dyski"));
-        serverRamMemory.setCellValueFactory(new PropertyValueFactory<>("RAM"));
-        serverPosition.setCellValueFactory(new PropertyValueFactory<>("poz. w szafie rack"));
-
-        serverTableView.setItems(servers);*/
-//        serverTableView.getColumns().addAll(serverId, serverBrand, serverModel, serverNrOfDisks, serverRamMemory, serverPosition);
-//        System.out.println(servers.get(0));
     }
 
     @FXML

@@ -1,11 +1,8 @@
 package gb;
 
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import model.Computer;
 import model.Rack;
 import model.Server;
 
@@ -109,9 +106,4 @@ public class ServerController {
         stage.close();
     }
 
-    @FXML
-    protected void addNewServer(ActionEvent event) {
-        ObservableList<Server> servers;
-//        servers.add(new Server())
-    }
 }

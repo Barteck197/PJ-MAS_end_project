@@ -1,7 +1,5 @@
 package gb;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,7 +16,6 @@ import model.Server;
 import utils.ObjectPlus;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class DashboardController {
 

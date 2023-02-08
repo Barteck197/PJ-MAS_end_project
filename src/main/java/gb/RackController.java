@@ -3,13 +3,16 @@ package gb;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import model.Rack;
 import model.Server;
-import utils.ObjectPlus;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RackController {
 
@@ -52,21 +55,32 @@ public class RackController {
         this.viewRack = viewRack;
     }
 
-    public RackController(){}
+    public RackController() {
+    }
 
     @FXML
     public void initialize() throws Exception {
-        if (viewRack != null){
+        if (viewRack != null) {
             setViewRack(viewRack);
 
             ObservableList<Server> rackServersObservableList = FXCollections.
                     observableArrayList(viewRack.getServers());
             rackServers.setItems(rackServersObservableList);
             System.out.println(rackServers.getItems());
+
+            rackServers.setOnMouseClicked(mouseEvent -> {
+                if (mouseEvent.getClickCount() == 2) {
+                    try {
+                        showRackServer(rackServers.getSelectionModel().getSelectedItem());
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            });
         }
     }
 
-    public void setViewRack(Rack rack){
+    public void setViewRack(Rack rack) {
         devicePurchaseDate.setValue(rack.getDevicePurchaseDate());
         deviceBrand.setText(rack.getDeviceBrand());
         deviceModel.setText(rack.getDeviceModel());

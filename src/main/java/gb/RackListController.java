@@ -1,28 +1,20 @@
 package gb;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import model.Rack;
-import model.Server;
 import utils.ObjectPlus;
 
-import java.security.spec.ECField;
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class RackListController {
 
@@ -39,7 +31,10 @@ public class RackListController {
     @FXML
     private TableColumn<Rack, Integer> rackSerialNumber;
     @FXML
+    private TableColumn<Rack, Integer> rackListVolume;
+    @FXML
     private TableColumn<Rack, Boolean> rackInUse;
+
 
     @FXML
     public void initialize() throws Exception {
@@ -81,7 +76,7 @@ public class RackListController {
 
     public void showRack(Rack rack) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("rack-view.fxml"));
-        // Podczas ładowania nowego okna w konstruktorze przekazujemy obiekt książki do wyświetlenia
+        // Podczas ładowania nowego okna w konstruktorze przekazujemy obiekt szafy do wyświetlenia
         loader.setControllerFactory(controller -> new RackController(rack));
         Pane myPane = loader.load();
 
@@ -93,17 +88,11 @@ public class RackListController {
     @FXML
     void addRackButtonClicked(ActionEvent event) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("rack-view.fxml"));
-        // Podczas ładowania nowego okna w konstruktorze przekazujemy obiekt książki do wyświetlenia
         Pane myPane = loader.load();
 
         Stage newStage = new Stage();
         newStage.setScene(new Scene(myPane));
         newStage.show();
-    }
-
-    @FXML
-    void editRackButtonClicked(ActionEvent event) {
-        // TODO - edycja szafy rack
     }
 
     @FXML

@@ -39,9 +39,8 @@
         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="150.0" spacing="10.0" BorderPane.alignment="TOP_LEFT">
             <children>
                 <Button alignment="TOP_RIGHT" contentDisplay="CENTER" mnemonicParsing="false"
-                        onAction="#addRackButtonClicked" text="Dodaj szafę rack"/>
-                <Button mnemonicParsing="false" text="Edytuj szafę rack"/>
-                <Button mnemonicParsing="false" text="Usuń szafę rack"/>
+                        onAction="#addRackButtonClicked" text="Dodaj szafę"/>
+                <Button mnemonicParsing="false" text="Usuń szafę"/>
             </children>
         </VBox>
     </right>
@@ -66,6 +65,11 @@
                 <TableColumn fx:id="rackSerialNumber" prefWidth="75.0" text="Nr seryjny">
                     <cellValueFactory>
                         <PropertyValueFactory property="deviceSerialNumber"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="rackListVolume" prefWidth="125.0" text="Pojemność (U)">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="rackVolume"/>
                     </cellValueFactory>
                 </TableColumn>
                 <TableColumn fx:id="rackInUse" prefWidth="75.0" text="W użyciu?">

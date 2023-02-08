@@ -38,14 +38,7 @@
     <right>
         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="TOP_LEFT">
             <children>
-                <Button fx:id="addServerButton" alignment="TOP_RIGHT" contentDisplay="CENTER" mnemonicParsing="false"
-                        onAction="#addServerButtonClicked" text="Dodaj serwer">
-                    <opaqueInsets>
-                        <Insets/>
-                    </opaqueInsets>
-                </Button>
-                <Button mnemonicParsing="false" text="Edytuj serwer"/>
-                <Button mnemonicParsing="false" text="Usuń serwer"/>
+<!--                <Button mnemonicParsing="false" text="Usuń serwer"/>-->
             </children>
         </VBox>
     </right>

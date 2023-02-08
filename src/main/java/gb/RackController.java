@@ -81,7 +81,112 @@ public class RackController {
         rackWidth.setText(String.valueOf(rack.getRackWidth()));
     }
 
+    public void createNewRack() {
+        try {
+            Rack userRack = new Rack(
+                    devicePurchaseDate.getValue(),
+                    deviceBrand.getText(),
+                    deviceModel.getText(),
+                    Long.parseLong(deviceSerialNumber.getText()),
+                    Integer.parseInt(deviceAmortizationTime.getText()),
+                    deviceInUse.isSelected(),
+                    deviceInstalationTime.getValue(),
+                    Integer.parseInt(rackHeight.getText()),
+                    Integer.parseInt(rackWidth.getText()),
+                    Integer.parseInt(rackDepth.getText()),
+                    Integer.parseInt(rackVolume.getText()));
 
+        } catch (Exception ex) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Niepoprawne dane.");
+            alert.setContentText(ex.getMessage());
+            alert.show();
+        }
+    }
+
+    @FXML
+    public void saveRackData() {
+        if (viewRack == null) {
+            // Jeśli byliśmy w trybie dodawania szafy - tworzymy nowy obiek
+            createNewRack();
+        } else {
+            // W przeciwnym razie aktualizujemy informacje o szafie
+            updateRackData();
+        }
+
+        closeFormAction();
+    }
+
+    public void updateRackData() {
+        try {
+            viewRack.setDevicePurchaseDate(devicePurchaseDate.getValue());
+            viewRack.setDeviceBrand(deviceBrand.getText());
+            viewRack.setDeviceModel(deviceModel.getText());
+            viewRack.setDeviceAmortizationTime(Integer.parseInt(deviceAmortizationTime.getText()));
+            viewRack.setDeviceInUse(deviceInUse.isSelected());
+            viewRack.setServerDeviceMountDate(deviceInstalationTime.getValue());
+            viewRack.setRackHeight(Integer.parseInt(rackHeight.getText()));
+            viewRack.setRackWidth(Integer.parseInt(rackWidth.getText()));
+            viewRack.setRackLength(Integer.parseInt(rackDepth.getText()));
+            viewRack.setRackVolume(Integer.parseInt(rackVolume.getText()));
+        } catch (Exception ex) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Niepoprawne dane.");
+            alert.setContentText(ex.getMessage());
+            alert.show();
+        }
+
+        // Usunięcie obiektów
+        List<Server> linkedServers = rackServers.getItems();
+        for (Server srv : new ArrayList<>(viewRack.getServers())) {
+            if (!linkedServers.contains(srv)) {
+                viewRack.removeServer(srv);
+            }
+        }
+
+        // Dodanie powiązań
+        for (Server srv : linkedServers) {
+            try {
+                viewRack.addServerToRack(srv);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    @FXML
+    void addRackServer() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("server-view.fxml"));
+            loader.setControllerFactory(controller -> new ServerController(viewRack));
+            // Load the FXML file
+            Parent root = loader.load();
+
+            // Create a new stage
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root, 680, 480));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void showRackServer(Server server) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("server-view.fxml"));
+            loader.setControllerFactory(controller -> new ServerController(server, viewRack));
+            // Load the FXML file
+            Parent root = loader.load();
+
+            // Create a new stage
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root, 680, 480));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     private void closeFormAction() {

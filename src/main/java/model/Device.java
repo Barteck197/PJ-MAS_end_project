@@ -94,6 +94,38 @@ public abstract class Device extends ObjectPlus {
         return deviceInUse;
     }
 
+    public void setDeviceId(int deviceId) {
+        this.deviceId = deviceId;
+    }
+
+    public void setDevicePurchaseDate(LocalDate devicePurchaseDate) {
+        this.devicePurchaseDate = devicePurchaseDate;
+    }
+
+    public void setDeviceBrand(String deviceBrand) {
+        this.deviceBrand = deviceBrand;
+    }
+
+    public void setDeviceModel(String deviceModel) {
+        this.deviceModel = deviceModel;
+    }
+
+    public void setDeviceSerialNumber(long deviceSerialNumber) {
+        this.deviceSerialNumber = deviceSerialNumber;
+    }
+
+    public void setDeviceAmortizationTime(int deviceAmortizationTime) {
+        this.deviceAmortizationTime = deviceAmortizationTime;
+    }
+
+    public void setDeviceInUse(boolean deviceInUse) {
+        this.deviceInUse = deviceInUse;
+    }
+
+    public void setDevicePurchaseOrder(PurchaseOrder devicePurchaseOrder) {
+        this.devicePurchaseOrder = devicePurchaseOrder;
+    }
+
     public void retireDevice() {
         deviceInUse = false;
     }

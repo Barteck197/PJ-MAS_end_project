@@ -62,6 +62,7 @@ public class Main extends Application {
 
     /**
      * Metoda wczytująca dane dt. ekstensji z pliku
+     *
      * @throws Exception
      */
     public static void readExtent() throws Exception {
@@ -84,9 +85,13 @@ public class Main extends Application {
                     LocalDate.of(2022, 12, 01), 187, 60, 60, 19);
 
             Server server = Server.CreateServer(LocalDate.of(2023, 01, 20), "Dell", "PowerEdge R250", 32450, 2, true,
-                    LocalDate.of(2023, 02, 01), 4, 64, rack, 1, computer);
+                    LocalDate.of(2023, 02, 01), 4, 64, rack, 1);
+
+            Server server1 = Server.CreateServer(LocalDate.of(2023, 02, 07), "Cisco", "UCS C240 M6", 2554, 5, true,
+                    LocalDate.of(2023, 02, 07), 4, 16, rack, 2);
 
             serverList.add(server);
+            serverList.add(server1);
             rackList.add(rack);
             computerList.add(computer);
         }
@@ -94,9 +99,10 @@ public class Main extends Application {
 
     /**
      * Metoda zapisująca dane dt. ekstensji w pliku
+     *
      * @throws Exception
      */
-    public static void saveExtent() throws Exception{
+    public static void saveExtent() throws Exception {
         System.out.println("Saving extent...");
         ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(pathToData));
         ObjectPlus.writeExtents(oos);

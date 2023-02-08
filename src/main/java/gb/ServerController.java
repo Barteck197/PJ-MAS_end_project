@@ -12,38 +12,59 @@ import model.Server;
 public class ServerController {
 
     private Server viewServer;
+    // Szafa, której dotyczy serwer
+    private Rack viewRack;
 
-    @FXML private Button serverSaveForm;
-    @FXML private Button serverExitForm;
+    @FXML
+    private Button serverSaveForm;
+    @FXML
+    private Button serverExitForm;
 
     // Device fields
-    @FXML private DatePicker devicePurchaseDate;
-    @FXML private TextField deviceBrand;
-    @FXML private TextField deviceModel;
-    @FXML private TextField deviceSerialNumber;
-    @FXML private TextField deviceAmortizationTime;
-    @FXML private RadioButton deviceInUse;
+    @FXML
+    private DatePicker devicePurchaseDate;
+    @FXML
+    private TextField deviceBrand;
+    @FXML
+    private TextField deviceModel;
+    @FXML
+    private TextField deviceSerialNumber;
+    @FXML
+    private TextField deviceAmortizationTime;
+    @FXML
+    private RadioButton deviceInUse;
 
-    @FXML private DatePicker deviceInstalationTime;
+    @FXML
+    private DatePicker deviceInstalationTime;
 
     // Server fields
-    @FXML private TextField serverMountedDisks;
-    @FXML private TextField serverMaxRAMMemory;
-//    @FXML private Rack serverRack;
-    @FXML private TextField serverPositionInRack;
-//    @FXML private Computer serverComputer;
+    @FXML
+    private TextField serverMountedDisks;
+    @FXML
+    private TextField serverMaxRAMMemory;
+    @FXML
+    private TextField serverPositionInRack;
 
-    public ServerController(Server viewServer) {
+    public ServerController(Server viewServer, Rack viewRack) {
         this.viewServer = viewServer;
+        this.viewRack = viewRack;
     }
+
+    public ServerController(Rack viewRack) {
+        this.viewRack = viewRack;
+    }
+
+//    public ServerController(Server server){ this.viewServer = server;}
 
     @FXML
     public void initialize() {
-        setServer(viewServer);
+        if (viewServer != null) {
+            setServer(viewServer);
+        }
     }
 
     @FXML
-    void setServer(Server server){
+    void setServer(Server server) {
         devicePurchaseDate.setValue(server.getDevicePurchaseDate());
         deviceBrand.setText(server.getDeviceBrand());
         deviceModel.setText(server.getDeviceModel());
@@ -56,12 +77,31 @@ public class ServerController {
         serverMaxRAMMemory.setText(String.valueOf(server.getServerMaxRAMMemory()));
     }
 
-
-    @FXML
-    private void validateForm(ActionEvent event) {
-        System.out.println(devicePurchaseDate.getValue());
-        addNewServer(event);
+    public void createNewServer() {
+        try {
+            //TODO - tworzenie obiektu serwer
+        } catch (Exception ex) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Niepoprawne dane.");
+            alert.setContentText(ex.getMessage());
+            alert.show();
+        }
     }
+
+    public void saveServerData() {
+        if (viewServer == null) {
+            createNewServer();
+        } else {
+            updateServerData();
+        }
+
+        closeFormAction();
+    }
+
+    public void updateServerData() {
+        // TODO - aktualizowanie obiektu serwer
+    }
+
 
     @FXML
     private void closeFormAction() {

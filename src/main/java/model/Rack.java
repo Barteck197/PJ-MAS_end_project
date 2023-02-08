@@ -82,4 +82,39 @@ public class Rack extends ServerDevice {
     public void removeServer(Server oldServer) {
         rackServers.remove(oldServer.getServerPositionInRack());
     }
+
+    public List<Server> getServers(){
+        return new ArrayList<>(rackServers.values());
+    }
+    public int getRackHeight() {
+        return rackHeight;
+    }
+
+    public void setRackHeight(int rackHeight) {
+        this.rackHeight = rackHeight;
+    }
+
+    public int getRackWidth() {
+        return rackWidth;
+    }
+
+    public void setRackWidth(int rackWidth) {
+        this.rackWidth = rackWidth;
+    }
+
+    public int getRackLength() {
+        return rackLength;
+    }
+
+    public void setRackLength(int rackLength) {
+        this.rackLength = rackLength;
+    }
+
+    public int getRackVolume() {
+        return rackVolume;
+    }
+
+    public void setRackVolume(int rackVolume) {
+        this.rackVolume = rackVolume;
+    }
 }

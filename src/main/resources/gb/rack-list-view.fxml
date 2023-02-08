@@ -75,7 +75,7 @@
                 </TableColumn>
             </columns>
             <items>
-                <FXCollections fx:factory="observableArrayList">
+                <FXCollections fx:factory="observableArrayList" >
                 </FXCollections>
             </items>
         </TableView>

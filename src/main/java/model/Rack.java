@@ -31,7 +31,7 @@ public class Rack extends ServerDevice {
 
     public Rack(LocalDate devicePurchaseDate,
                 String deviceBrand, String deviceModel,
-                float deviceSerialNumber, int deviceAmortizationTime,
+                long deviceSerialNumber, int deviceAmortizationTime,
                 boolean deviceInUse, LocalDate serverDeviceMountDate,
                 int rackHeight, int rackWidth, int rackLength, int rackVolume) {
         super(devicePurchaseDate, deviceBrand, deviceModel, deviceSerialNumber, deviceAmortizationTime, deviceInUse, serverDeviceMountDate);

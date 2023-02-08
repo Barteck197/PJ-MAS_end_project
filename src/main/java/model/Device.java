@@ -12,7 +12,7 @@ public abstract class Device extends ObjectPlus {
     private LocalDate devicePurchaseDate;
     private String deviceBrand;
     private String deviceModel;
-    private float deviceSerialNumber;
+    private long deviceSerialNumber;
     private int deviceAmortizationTime;
     private boolean deviceInUse;
 
@@ -31,7 +31,7 @@ public abstract class Device extends ObjectPlus {
     public Device(LocalDate devicePurchaseDate,
                   String deviceBrand,
                   String deviceModel,
-                  float deviceSerialNumber,
+                  long deviceSerialNumber,
                   int deviceAmortizationTime,
                   boolean deviceInUse) {
         super();
@@ -82,7 +82,7 @@ public abstract class Device extends ObjectPlus {
         return deviceModel;
     }
 
-    public float getDeviceSerialNumber() {
+    public long getDeviceSerialNumber() {
         return deviceSerialNumber;
     }
 

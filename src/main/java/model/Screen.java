@@ -9,7 +9,7 @@ public class Screen extends UserDevice{
      * Konstruktor do tworzenia obiektów typu Ekran
      */
     public Screen(LocalDate devicePurchaseDate, String deviceBrand, String deviceModel,
-                  float deviceSerialNumber, int deviceAmortizationTime, boolean deviceInUse,
+                  long deviceSerialNumber, int deviceAmortizationTime, boolean deviceInUse,
                   Site workerDeviceLocation, LocalDate workerDeviceIssueDate, float screenSize) {
         super(devicePurchaseDate, deviceBrand, deviceModel, deviceSerialNumber, deviceAmortizationTime, deviceInUse, workerDeviceLocation, workerDeviceIssueDate);
         this.screenSize = screenSize;

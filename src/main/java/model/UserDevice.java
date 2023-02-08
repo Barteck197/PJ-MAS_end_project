@@ -20,7 +20,7 @@ public abstract class UserDevice extends Device {
     public UserDevice(LocalDate devicePurchaseDate,
                       String deviceBrand,
                       String deviceModel,
-                      float deviceSerialNumber,
+                      long deviceSerialNumber,
                       int deviceAmortizationTime,
                       boolean deviceInUse,
                       Site workerDeviceLocation,

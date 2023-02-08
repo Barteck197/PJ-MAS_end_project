@@ -19,7 +19,7 @@ public abstract class ServerDevice extends Device {
     public ServerDevice(LocalDate devicePurchaseDate,
                         String deviceBrand,
                         String deviceModel,
-                        float deviceSerialNumber,
+                        long deviceSerialNumber,
                         int deviceAmortizationTime,
                         boolean deviceInUse,
                         LocalDate serverDeviceMountDate) {

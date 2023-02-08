@@ -22,7 +22,7 @@ public class Laptop extends UserDevice {
      * @param laptopScreenSize       przekątna ekranu
      */
     private Laptop(LocalDate devicePurchaseDate, String deviceBrand,
-                   String deviceModel, float deviceSerialNumber, int deviceAmortizationTime,
+                   String deviceModel, long deviceSerialNumber, int deviceAmortizationTime,
                    boolean deviceInUse, Site workerDeviceLocation, LocalDate workerDeviceIssueDate,
                    float laptopScreenSize, Computer computer) {
         super(devicePurchaseDate, deviceBrand, deviceModel,
@@ -37,7 +37,7 @@ public class Laptop extends UserDevice {
      * @param computer komputer, którego częścią jest laptop
      */
     public static Laptop CreateLaptop(LocalDate devicePurchaseDate, String deviceBrand,
-                                      String deviceModel, float deviceSerialNumber, int deviceAmortizationTime,
+                                      String deviceModel, long deviceSerialNumber, int deviceAmortizationTime,
                                       boolean deviceInUse, Site workerDeviceLocation, LocalDate workerDeviceIssueDate,
                                       float laptopScreenSize, Computer computer) throws Exception {
         if (computer == null) {

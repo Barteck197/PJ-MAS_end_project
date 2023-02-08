@@ -30,16 +30,13 @@ public class Server extends ServerDevice {
      * @param serverMountedDisks     Liczba zamontowanych dysków twardych
      */
     private Server(LocalDate devicePurchaseDate, String deviceBrand, String deviceModel,
-                   float deviceSerialNumber, int deviceAmortizationTime, boolean deviceInUse,
-                   LocalDate serverDeviceMountDate, int serverMountedDisks, int serverMaxRAMMemory, Rack serverRack, int serverPositionInRack,
-                   Computer computer) {
+                   long deviceSerialNumber, int deviceAmortizationTime, boolean deviceInUse,
+                   LocalDate serverDeviceMountDate, int serverMountedDisks, int serverMaxRAMMemory, Rack serverRack, int serverPositionInRack) {
         super(devicePurchaseDate, deviceBrand, deviceModel, deviceSerialNumber, deviceAmortizationTime, deviceInUse, serverDeviceMountDate);
         this.serverMountedDisks = serverMountedDisks;
         this.serverMaxRAMMemory = serverMaxRAMMemory;
         this.serverRack = serverRack;
         this.serverPositionInRack = serverPositionInRack;
-
-        this.serverComputer = computer;
 
         this.serverVirtualMachines = new ArrayList<>();
     }
@@ -51,27 +48,20 @@ public class Server extends ServerDevice {
      * @throws Exception
      */
     public static Server CreateServer(LocalDate devicePurchaseDate, String deviceBrand, String deviceModel,
-                                      float deviceSerialNumber, int deviceAmortizationTime, boolean deviceInUse,
+                                      long deviceSerialNumber, int deviceAmortizationTime, boolean deviceInUse,
                                       LocalDate serverDeviceMountDate, int serverMountedDisks, int serverMaxRAMMemory,
-                                      Rack serverRack, int serverPositionInRack, Computer computer) throws Exception {
+                                      Rack serverRack, int serverPositionInRack) throws Exception {
         if (serverRack == null) {
             throw new Exception("Dana szafa nie istnieje");
-        }
-
-        if (computer == null) {
-            throw new Exception("Podany komputer nie istnieje");
         }
 
         // Utworzenie serwera
         Server srv = new Server(devicePurchaseDate, deviceBrand, deviceModel,
                 deviceSerialNumber, deviceAmortizationTime, deviceInUse, serverDeviceMountDate,
-                serverMountedDisks, serverMaxRAMMemory, serverRack, serverPositionInRack, computer);
+                serverMountedDisks, serverMaxRAMMemory, serverRack, serverPositionInRack);
 
         // Umieszczenie serwera w szafie rack
         serverRack.addServerToRack(srv);
-
-        // Przypisanie serwera do komputera
-        computer.addServer(srv);
 
         return srv;
     }
@@ -134,5 +124,10 @@ public class Server extends ServerDevice {
 
     public void setServerComputer(Computer serverComputer) {
         this.serverComputer = serverComputer;
+    }
+
+    @Override
+    public String toString() {
+        return getDeviceBrand() + " " + getDeviceModel();
     }
 }

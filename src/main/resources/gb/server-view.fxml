@@ -73,10 +73,10 @@
                </GridPane.margin>
             </DatePicker>
             <DatePicker fx:id="deviceInstalationTime" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Label text="Wybierz szafę rack" GridPane.rowIndex="6" />
-            <ChoiceBox prefHeight="25.0" prefWidth="156.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label text="Szafa rack" GridPane.rowIndex="6" />
             <Label text="Miejsce w szafie rack" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-            <ChoiceBox layoutX="156.0" layoutY="298.0" prefHeight="25.0" prefWidth="168.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <Label text=" "  GridPane.columnIndex="1" GridPane.rowIndex="6" fx:id="serverRack"/>
+            <Label text=" " GridPane.columnIndex="3" GridPane.rowIndex="6" fx:id="serverPositionInRack"/>
          </children>
       </GridPane>
    </center>

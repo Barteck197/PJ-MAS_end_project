@@ -40,15 +40,32 @@ public class ServerController {
     @FXML
     private TextField serverMaxRAMMemory;
     @FXML
-    private TextField serverPositionInRack;
+    private Label serverRack = new Label();
+    @FXML
+    private Label serverPositionInRack = new Label();
 
+    /**
+     * Kontroler uruchamiany przy podglądzie serwera z poziomu szafy rack
+     * @param viewServer serwer, który chcemy oglądać
+     * @param viewRack szafa do której jest przypisany
+     */
     public ServerController(Server viewServer, Rack viewRack) {
         this.viewServer = viewServer;
         this.viewRack = viewRack;
+
+        serverRack.setText(viewRack.getDeviceBrand() + " " + viewRack.getDeviceModel());
+        serverPositionInRack.setText(String.valueOf(viewServer.getServerPositionInRack()));
     }
 
+    /**
+     * Kontroler uruchamiany przy dodawaniu nowego serwera
+     * @param viewRack szafa w której ma być dodany serwer
+     */
     public ServerController(Rack viewRack) {
         this.viewRack = viewRack;
+
+        serverRack.setText(viewRack.getDeviceBrand() + " " + viewRack.getDeviceModel());
+        serverPositionInRack = new Label();
     }
 
 //    public ServerController(Server server){ this.viewServer = server;}
@@ -72,6 +89,8 @@ public class ServerController {
 
         serverMountedDisks.setText(String.valueOf(server.getServerMountedDisks()));
         serverMaxRAMMemory.setText(String.valueOf(server.getServerMaxRAMMemory()));
+        serverRack.setText(server.getServerRack().getDeviceBrand() + " " + server.getServerRack().getDeviceModel());
+        serverPositionInRack.setText(String.valueOf(server.getServerPositionInRack()));
     }
 
     public void createNewServer() {

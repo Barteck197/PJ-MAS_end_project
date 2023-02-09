@@ -35,18 +35,15 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.show();
 
-        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent windowEvent) {
-                Platform.exit();
-                try {
-                    // Zapisanie ekstensji do pliku
-                    saveExtent();
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-                System.exit(0);
+        stage.setOnCloseRequest(windowEvent -> {
+            Platform.exit();
+            try {
+                // Zapisanie ekstensji do pliku
+                saveExtent();
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
+            System.exit(0);
         });
     }
 
@@ -90,9 +87,17 @@ public class Main extends Application {
             Server server1 = Server.CreateServer(LocalDate.of(2023, 02, 07), "Cisco", "UCS C240 M6", 2554, 5, true,
                     LocalDate.of(2023, 02, 07), 4, 16, rack, 2);
 
+            Rack rack2 = new Rack(LocalDate.of(2022, 2, 1), "Rack Systems", "S8146", 613415, 2, true,
+                    LocalDate.of(2022, 2, 9), 220, 80, 100, 42);
+
+            Server server2 = Server.CreateServer(LocalDate.of(2023, 2, 8), "Fujitsu", "Primergy RX4770 M5", 2556, 5, false,
+                    LocalDate.of(2023, 02, 9), 8, 64, rack2, 1);
+
             serverList.add(server);
             serverList.add(server1);
+            serverList.add(server2);
             rackList.add(rack);
+            rackList.add(rack2);
             computerList.add(computer);
         }
     }

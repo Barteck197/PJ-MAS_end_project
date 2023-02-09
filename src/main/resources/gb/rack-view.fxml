@@ -101,7 +101,7 @@
       </GridPane>
    </center>
    <top>
-      <Label text="Dodawanie szafy rack" BorderPane.alignment="CENTER">
+      <Label text="Szafa rack" BorderPane.alignment="CENTER">
          <font>
             <Font size="18.0" />
          </font></Label>

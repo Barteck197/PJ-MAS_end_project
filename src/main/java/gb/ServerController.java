@@ -76,11 +76,25 @@ public class ServerController {
 
     public void createNewServer() {
         try {
-            //TODO - tworzenie obiektu serwer
+            Server.CreateServer(
+                    devicePurchaseDate.getValue(),
+                    deviceBrand.getText(),
+                    deviceModel.getText(),
+                    Long.parseLong(deviceSerialNumber.getText()),
+                    Integer.parseInt(deviceAmortizationTime.getText()),
+                    deviceInUse.isSelected(),
+                    deviceInstalationTime.getValue(),
+                    Integer.parseInt(serverMountedDisks.getText()),
+                    Integer.parseInt(serverMaxRAMMemory.getText()),
+                    viewRack,
+                    1
+            );
+
+
         } catch (Exception ex) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("Niepoprawne dane.");
-            alert.setContentText(ex.getMessage());
+            alert.setContentText(ex.getLocalizedMessage());
             alert.show();
         }
     }
@@ -96,7 +110,21 @@ public class ServerController {
     }
 
     public void updateServerData() {
-        // TODO - aktualizowanie obiektu serwer
+        try {
+            viewServer.setDevicePurchaseDate(devicePurchaseDate.getValue());
+            viewServer.setDeviceBrand(deviceBrand.getText());
+            viewServer.setDeviceModel(deviceModel.getText());
+            viewServer.setDeviceAmortizationTime(Integer.parseInt(deviceAmortizationTime.getText()));
+            viewServer.setDeviceInUse(deviceInUse.isSelected());
+            viewServer.setServerDeviceMountDate(deviceInstalationTime.getValue());
+            viewServer.setServerMountedDisks(Integer.parseInt(serverMountedDisks.getText()));
+            viewServer.setServerMaxRAMMemory(Integer.parseInt(serverMaxRAMMemory.getText()));
+        } catch (Exception ex) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Niepoprawne dane.");
+            alert.setContentText(ex.getMessage());
+            alert.show();
+        }
     }
 
 

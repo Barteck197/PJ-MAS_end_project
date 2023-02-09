@@ -54,6 +54,8 @@ public class RackController {
     @FXML
     private Button discardChanges;
 
+    ObservableList<Server> rackServersObservableList;
+
     public RackController(Rack viewRack) {
         this.viewRack = viewRack;
     }
@@ -66,7 +68,7 @@ public class RackController {
         if (viewRack != null) {
             setViewRack(viewRack);
 
-            ObservableList<Server> rackServersObservableList = FXCollections.
+            rackServersObservableList = FXCollections.
                     observableArrayList(viewRack.getServers());
             rackServers.setItems(rackServersObservableList);
 //            System.out.println(rackServers.getItems());
@@ -234,7 +236,7 @@ public class RackController {
     @FXML
     protected void deleteRackServer() {
         // Tworzymy tymczasową 'observable list'
-        ObservableList<Server> rackServersObservableList = FXCollections.observableArrayList(rackServers.getItems());
+//        ObservableList<Server> rackServersObservableList = FXCollections.observableArrayList(rackServers.getItems());
         // Usuwamy żądany obiekt z listy
         rackServersObservableList.remove(selectedServer);
         // Przypisujemy do widoku zaktualizowaną listę

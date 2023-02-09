@@ -52,18 +52,14 @@
             <Label text="Czas amortyzacji:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
             <Label text="Czy w użyciu" GridPane.rowIndex="2" />
             <Label text="Data montażu:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <TextField fx:id="deviceSerialNumber" GridPane.columnIndex="3">
-               <GridPane.margin>
-                  <Insets right="10.0" />
-               </GridPane.margin></TextField>
+            <TextField fx:id="deviceSerialNumber" GridPane.columnIndex="3" />
             <TextField fx:id="deviceAmortizationTime" GridPane.columnIndex="3" GridPane.rowIndex="3" />
             <RadioButton fx:id="deviceInUse" mnemonicParsing="false" selected="true" text="Tak" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Separator prefHeight="0.0" prefWidth="418.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="4" />
             <Label text="Serwery" GridPane.rowIndex="7" />
             <ToolBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="8">
               <items>
-                  <Button mnemonicParsing="false" text="Dodaj" onAction="#addRackServer"/>
-                  <Button mnemonicParsing="false" text="Edytuj" />
+                  <Button mnemonicParsing="false" onAction="#addRackServer" text="Dodaj" />
                   <Button mnemonicParsing="false" text="Usuń" />
               </items>
             </ToolBar>

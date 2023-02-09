@@ -48,6 +48,8 @@ public class RackController {
     @FXML
     private ListView<Server> rackServers = new ListView<>();
     // TODO - sprawdzenie czy wszystkie zmienne są potrzebne
+
+    private Server selectedServer = null;
     @FXML
     private Button discardChanges;
 
@@ -66,7 +68,7 @@ public class RackController {
             ObservableList<Server> rackServersObservableList = FXCollections.
                     observableArrayList(viewRack.getServers());
             rackServers.setItems(rackServersObservableList);
-            System.out.println(rackServers.getItems());
+//            System.out.println(rackServers.getItems());
 
             rackServers.setOnMouseClicked(mouseEvent -> {
                 if (mouseEvent.getClickCount() == 2) {
@@ -76,6 +78,7 @@ public class RackController {
                         throw new RuntimeException(e);
                     }
                 }
+                selectedServer = rackServers.getSelectionModel().getSelectedItem();
             });
         }
     }
@@ -202,7 +205,18 @@ public class RackController {
         }
     }
 
-    // TODO - usuwanie szafy
+    /**
+     * Usunięcie serwera z poziomu widoku szafy. Usuwamy serwer aktualnie zaznaczony
+     */
+    @FXML
+    void deleteRackServer() {
+        // Tworzymy tymczasową 'observable list'
+        ObservableList<Server> rackServersObservableList = FXCollections.observableArrayList(rackServers.getItems());
+        // Usuwamy żądany obiekt z listy
+        rackServersObservableList.remove(selectedServer);
+        // Przypisujemy do widoku zaktualizowaną listę
+        rackServers.setItems(rackServersObservableList);
+    }
 
     @FXML
     private void closeFormAction() {

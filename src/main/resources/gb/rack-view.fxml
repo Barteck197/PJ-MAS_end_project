@@ -60,7 +60,7 @@
             <ToolBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="8">
               <items>
                   <Button mnemonicParsing="false" onAction="#addRackServer" text="Dodaj" />
-                  <Button mnemonicParsing="false" text="Usuń" />
+                  <Button mnemonicParsing="false" onAction="#deleteRackServer" text="Usuń" />
               </items>
             </ToolBar>
             <ListView fx:id="rackServers" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="7" />

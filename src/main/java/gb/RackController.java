@@ -47,7 +47,7 @@ public class RackController {
 
     @FXML
     private ListView<Server> rackServers = new ListView<>();
-
+    // TODO - sprawdzenie czy wszystkie zmienne są potrzebne
     @FXML
     private Button discardChanges;
 
@@ -59,7 +59,7 @@ public class RackController {
     }
 
     @FXML
-    public void initialize() throws Exception {
+    public void initialize() {
         if (viewRack != null) {
             setViewRack(viewRack);
 
@@ -97,7 +97,7 @@ public class RackController {
 
     public void createNewRack() {
         try {
-            Rack userRack = new Rack(
+            new Rack(
                     devicePurchaseDate.getValue(),
                     deviceBrand.getText(),
                     deviceModel.getText(),
@@ -108,8 +108,8 @@ public class RackController {
                     Integer.parseInt(rackHeight.getText()),
                     Integer.parseInt(rackWidth.getText()),
                     Integer.parseInt(rackDepth.getText()),
-                    Integer.parseInt(rackVolume.getText()));
-
+                    Integer.parseInt(rackVolume.getText())
+            );
         } catch (Exception ex) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("Niepoprawne dane.");
@@ -121,7 +121,7 @@ public class RackController {
     @FXML
     public void saveRackData() {
         if (viewRack == null) {
-            // Jeśli byliśmy w trybie dodawania szafy - tworzymy nowy obiek
+            // Jeśli byliśmy w trybie dodawania szafy - tworzymy nowy obiekt
             createNewRack();
         } else {
             // W przeciwnym razie aktualizujemy informacje o szafie
@@ -201,6 +201,8 @@ public class RackController {
             e.printStackTrace();
         }
     }
+
+    // TODO - usuwanie szafy
 
     @FXML
     private void closeFormAction() {

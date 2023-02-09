@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class Server extends ServerDevice {
     private int serverMountedDisks;
-    private final int serverMaxRAMMemory;
+    private int serverMaxRAMMemory;
     private Rack serverRack;
     private int serverPositionInRack;
     private Computer serverComputer;
@@ -104,6 +104,10 @@ public class Server extends ServerDevice {
 
     public int getServerMaxRAMMemory() {
         return serverMaxRAMMemory;
+    }
+
+    public void setServerMaxRAMMemory(int serverMaxRAMMemory) {
+        this.serverMaxRAMMemory = serverMaxRAMMemory;
     }
 
     public Rack getServerRack() {

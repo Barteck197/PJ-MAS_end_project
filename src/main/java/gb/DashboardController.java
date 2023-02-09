@@ -25,6 +25,8 @@ public class DashboardController {
     @FXML
     private TableView<Server> serverTableView = new TableView<>();
 
+    private Server selectedServer;
+
     @FXML
     private TableColumn<Server, Integer> serverId;
     @FXML
@@ -45,9 +47,10 @@ public class DashboardController {
         serverTableView.setItems(serverObservableList);
 
         serverTableView.setOnMouseClicked(mouseEvent -> {
+            selectedServer = serverTableView.getSelectionModel().getSelectedItem();
             if (mouseEvent.getClickCount() == 2) {
                 try {
-                    showServer(serverTableView.getSelectionModel().getSelectedItem());
+                    showServer(selectedServer);
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
@@ -81,7 +84,12 @@ public class DashboardController {
     }
 
     @FXML
-    void deleteServer(ActionEvent event) {
-
+    void deleteServer() {
+        // Tworzymy tymczasową 'observable list'
+        ObservableList<Server> serversObservableList = FXCollections.observableArrayList(serverTableView.getItems());
+        // Usuwamy żądany obiekt z listy
+        serversObservableList.remove(selectedServer);
+        // Przypisujemy do widoku zaktualizowaną listę
+        serverTableView.setItems(serversObservableList);
     }
 }

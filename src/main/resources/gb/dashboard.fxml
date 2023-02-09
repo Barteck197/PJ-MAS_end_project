@@ -38,7 +38,7 @@
     <right>
         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="TOP_LEFT">
             <children>
-<!--                <Button mnemonicParsing="false" text="Usuń serwer"/>-->
+                <Button mnemonicParsing="false" text="Usuń serwer" onAction="#deleteServer"/>
             </children>
         </VBox>
     </right>

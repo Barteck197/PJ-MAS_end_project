@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import model.Rack;
 import model.Server;
+import utils.ObjectPlus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +49,6 @@ public class RackController {
 
     @FXML
     private ListView<Server> rackServers = new ListView<>();
-    // TODO - sprawdzenie czy wszystkie zmienne są potrzebne
 
     private Server selectedServer = null;
     @FXML
@@ -62,7 +62,7 @@ public class RackController {
     }
 
     @FXML
-    public void initialize() {
+    public void initialize() throws ClassNotFoundException {
         if (viewRack != null) {
             setViewRack(viewRack);
 
@@ -82,6 +82,7 @@ public class RackController {
                 selectedServer = rackServers.getSelectionModel().getSelectedItem();
             });
         }
+//        System.out.println(ObjectPlus.getExtent(Server.class));
     }
 
     /**
@@ -134,7 +135,7 @@ public class RackController {
      * Obsługujemy scenariusz dodania nowej jak i aktualizacji.
      */
     @FXML
-    public void saveRackData() {
+    protected void saveRackData() {
         if (viewRack == null) {
             // Jeśli byliśmy w trybie dodawania szafy - tworzymy nowy obiekt
             createNewRack();
@@ -190,7 +191,7 @@ public class RackController {
      * Metoda obsługująca dodawanie nowego serwera z poziomu widoku szafy
      */
     @FXML
-    void addRackServer() {
+    protected void addRackServer() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("server-view.fxml"));
             loader.setControllerFactory(controller -> new ServerController(viewRack));
@@ -211,7 +212,7 @@ public class RackController {
      * @param server instancja obiektu serwer.
      */
     @FXML
-    void showRackServer(Server server) {
+    protected void showRackServer(Server server) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("server-view.fxml"));
             loader.setControllerFactory(controller -> new ServerController(server, viewRack));
@@ -220,7 +221,7 @@ public class RackController {
 
             // Create a new stage
             Stage stage = new Stage();
-            stage.setScene(new Scene(root, 680, 480));
+            stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -231,7 +232,7 @@ public class RackController {
      * Usunięcie serwera z poziomu widoku szafy. Usuwamy serwer aktualnie zaznaczony
      */
     @FXML
-    void deleteRackServer() {
+    protected void deleteRackServer() {
         // Tworzymy tymczasową 'observable list'
         ObservableList<Server> rackServersObservableList = FXCollections.observableArrayList(rackServers.getItems());
         // Usuwamy żądany obiekt z listy

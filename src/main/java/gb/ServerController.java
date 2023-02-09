@@ -78,7 +78,7 @@ public class ServerController {
     }
 
     @FXML
-    void setServer(Server server) {
+    protected void setServer(Server server) {
         devicePurchaseDate.setValue(server.getDevicePurchaseDate());
         deviceBrand.setText(server.getDeviceBrand());
         deviceModel.setText(server.getDeviceModel());
@@ -93,7 +93,8 @@ public class ServerController {
         serverPositionInRack.setText(String.valueOf(server.getServerPositionInRack()));
     }
 
-    public void createNewServer() {
+    @FXML
+    protected void createNewServer() {
         try {
             Server.CreateServer(
                     devicePurchaseDate.getValue(),
@@ -108,8 +109,6 @@ public class ServerController {
                     viewRack,
                     1
             );
-
-
         } catch (Exception ex) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("Niepoprawne dane.");
@@ -118,17 +117,17 @@ public class ServerController {
         }
     }
 
-    public void saveServerData() {
+    @FXML
+    protected void saveServerData() {
         if (viewServer == null) {
             createNewServer();
         } else {
             updateServerData();
         }
-
         closeFormAction();
     }
 
-    public void updateServerData() {
+    protected void updateServerData() {
         try {
             viewServer.setDevicePurchaseDate(devicePurchaseDate.getValue());
             viewServer.setDeviceBrand(deviceBrand.getText());
@@ -148,7 +147,7 @@ public class ServerController {
 
 
     @FXML
-    private void closeFormAction() {
+    protected void closeFormAction() {
         Stage stage = (Stage) devicePurchaseDate.getScene().getWindow();
         stage.close();
     }

@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.Computer;
+import model.Device;
 import model.Rack;
 import model.Server;
 import utils.ObjectPlus;
@@ -99,6 +100,7 @@ public class Main extends Application {
             rackList.add(rack);
             rackList.add(rack2);
             computerList.add(computer);
+            Device.setNextDeviceID(5);
         }
     }
 

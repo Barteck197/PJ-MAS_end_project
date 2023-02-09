@@ -126,6 +126,10 @@ public abstract class Device extends ObjectPlus {
         this.devicePurchaseOrder = devicePurchaseOrder;
     }
 
+    public static void setNextDeviceID(int nextDeviceID) {
+        Device.nextDeviceID = nextDeviceID;
+    }
+
     public void retireDevice() {
         deviceInUse = false;
     }

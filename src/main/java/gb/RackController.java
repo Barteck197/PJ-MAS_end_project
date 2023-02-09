@@ -2,6 +2,7 @@ package gb;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -83,6 +84,10 @@ public class RackController {
         }
     }
 
+    /**
+     * Wypełnienie formularza danymi dotyczącymi wybranej szafy rack
+     * @param rack Szafa rack
+     */
     public void setViewRack(Rack rack) {
         devicePurchaseDate.setValue(rack.getDevicePurchaseDate());
         deviceBrand.setText(rack.getDeviceBrand());
@@ -98,6 +103,9 @@ public class RackController {
         rackWidth.setText(String.valueOf(rack.getRackWidth()));
     }
 
+    /**
+     * Utworzenie nowej szafy rack na podstawie parametrów podanych w formularzu.
+     */
     public void createNewRack() {
         try {
             new Rack(
@@ -121,6 +129,10 @@ public class RackController {
         }
     }
 
+    /**
+     * Zapisanie danych dt. szafy.
+     * Obsługujemy scenariusz dodania nowej jak i aktualizacji.
+     */
     @FXML
     public void saveRackData() {
         if (viewRack == null) {
@@ -134,6 +146,9 @@ public class RackController {
         closeFormAction();
     }
 
+    /**
+     * Aktualizowanie danych dt szafy. Dane sczytujemy z formularza.
+     */
     public void updateRackData() {
         try {
             viewRack.setDevicePurchaseDate(devicePurchaseDate.getValue());
@@ -171,6 +186,9 @@ public class RackController {
         }
     }
 
+    /**
+     * Metoda obsługująca dodawanie nowego serwera z poziomu widoku szafy
+     */
     @FXML
     void addRackServer() {
         try {
@@ -188,6 +206,10 @@ public class RackController {
         }
     }
 
+    /**
+     * Otwarcie nowego okna z widokiem szczegółów serwera wybranego z tabelki.
+     * @param server instancja obiektu serwer.
+     */
     @FXML
     void showRackServer(Server server) {
         try {
@@ -223,4 +245,5 @@ public class RackController {
         Stage stage = (Stage) discardChanges.getScene().getWindow();
         stage.close();
     }
+
 }

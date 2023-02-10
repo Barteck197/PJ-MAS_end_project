@@ -2,13 +2,10 @@ package gb;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -20,25 +17,9 @@ import java.util.ArrayList;
 public class DashboardController {
 
     @FXML
-    private Button addServerButton;
-
-    @FXML
     private TableView<Server> serverTableView = new TableView<>();
 
     private Server selectedServer;
-
-    @FXML
-    private TableColumn<Server, Integer> serverId;
-    @FXML
-    private TableColumn<Server, String> serverBrand;
-    @FXML
-    private TableColumn<Server, String> serverModel;
-    @FXML
-    private TableColumn<Server, Integer> serverNrOfDisks;
-    @FXML
-    private TableColumn<Server, Integer> serverRamMemory;
-    @FXML
-    private TableColumn<Server, Integer> serverPosition;
 
     @FXML
     public void initialize() throws Exception {
@@ -61,7 +42,7 @@ public class DashboardController {
     @FXML
     protected void showServer(Server server) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("server-view.fxml"));
-        // Podczas ładowania nowego okna w konstruktorze przekazujemy obiekt książki do wyświetlenia
+        // Podczas ładowania nowego okna w konstruktorze przekazujemy obiekt serwera do wyświetlenia
         loader.setControllerFactory(controller -> new ServerController(server, server.getServerRack()));
         Pane myPane = loader.load();
 
@@ -71,7 +52,7 @@ public class DashboardController {
     }
 
     @FXML
-    void viewRackList(ActionEvent event) {
+    void viewRackList() {
         try {
             Parent nextView = FXMLLoader.load(getClass().getResource("rack-list-view.fxml"));
             Scene nextScene = new Scene(nextView);

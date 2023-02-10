@@ -2,7 +2,6 @@ package gb;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,7 +10,6 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import model.Rack;
 import model.Server;
-import utils.ObjectPlus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,6 +87,7 @@ public class RackController {
 
     /**
      * Wypełnienie formularza danymi dotyczącymi wybranej szafy rack
+     *
      * @param rack Szafa rack
      */
     public void setViewRack(Rack rack) {
@@ -211,6 +210,7 @@ public class RackController {
 
     /**
      * Otwarcie nowego okna z widokiem szczegółów serwera wybranego z tabelki.
+     *
      * @param server instancja obiektu serwer.
      */
     @FXML

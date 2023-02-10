@@ -8,14 +8,11 @@ import model.Server;
 
 public class ServerController {
 
+    // Serwer wyświetlany w widoku
     private Server viewServer;
+
     // Szafa, której dotyczy serwer
     private Rack viewRack;
-
-    @FXML
-    private Button serverSaveForm;
-    @FXML
-    private Button serverExitForm;
 
     // Device fields
     @FXML
@@ -46,8 +43,9 @@ public class ServerController {
 
     /**
      * Kontroler uruchamiany przy podglądzie serwera z poziomu szafy rack
+     *
      * @param viewServer serwer, który chcemy oglądać
-     * @param viewRack szafa do której jest przypisany
+     * @param viewRack   szafa do której jest przypisany
      */
     public ServerController(Server viewServer, Rack viewRack) {
         this.viewServer = viewServer;
@@ -59,6 +57,7 @@ public class ServerController {
 
     /**
      * Kontroler uruchamiany przy dodawaniu nowego serwera
+     *
      * @param viewRack szafa w której ma być dodany serwer
      */
     public ServerController(Rack viewRack) {
@@ -67,8 +66,6 @@ public class ServerController {
         serverRack.setText(viewRack.getDeviceBrand() + " " + viewRack.getDeviceModel());
         serverPositionInRack = new Label();
     }
-
-//    public ServerController(Server server){ this.viewServer = server;}
 
     @FXML
     public void initialize() {
@@ -144,7 +141,6 @@ public class ServerController {
             alert.show();
         }
     }
-
 
     @FXML
     protected void closeFormAction() {

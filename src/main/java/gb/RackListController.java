@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -21,20 +20,6 @@ public class RackListController {
     @FXML
     private TableView<Rack> rackTableView = new TableView<>();
     private ObservableList<Rack> rackObservableList = FXCollections.observableArrayList();
-
-    @FXML
-    private TableColumn<Rack, Integer> rackID;
-    @FXML
-    private TableColumn<Rack, String> rackBrand;
-    @FXML
-    private TableColumn<Rack, String> rackModel;
-    @FXML
-    private TableColumn<Rack, Integer> rackSerialNumber;
-    @FXML
-    private TableColumn<Rack, Integer> rackListVolume;
-    @FXML
-    private TableColumn<Rack, Boolean> rackInUse;
-
 
     @FXML
     public void initialize() throws Exception {
@@ -51,18 +36,10 @@ public class RackListController {
                 }
             }
         });
-
-/*        rackTableView.getSelectionModel().selectedItemProperty().addListener((observableValue, rack, t1) -> {
-            try {
-                showRack(t1);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });*/
     }
 
     @FXML
-    void viewServerList(ActionEvent event) {
+    void viewServerList() {
         try {
             Parent nextView = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
             Scene nextScene = new Scene(nextView);
@@ -86,7 +63,7 @@ public class RackListController {
     }
 
     @FXML
-    void addRackButtonClicked(ActionEvent event) throws Exception {
+    void addRackButtonClicked() throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("rack-view.fxml"));
         Pane myPane = loader.load();
 
@@ -98,11 +75,5 @@ public class RackListController {
     @FXML
     void deleteRackButtonClicked(ActionEvent event) {
         // TODO - usuwanie szafy rack
-    }
-
-    @FXML
-    private void closeFormAction() {
-        Stage stage = (Stage) rackTableView.getScene().getWindow();
-        stage.close();
     }
 }

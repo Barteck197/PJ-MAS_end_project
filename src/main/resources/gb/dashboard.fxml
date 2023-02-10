@@ -45,41 +45,41 @@
     <center>
         <TableView fx:id="serverTableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <columns>
-                <TableColumn fx:id="serverId" prefWidth="75.0" text="Id serwera">
+                <TableColumn prefWidth="75.0" text="Id serwera">
                     <cellValueFactory>
                         <PropertyValueFactory property="deviceId"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn fx:id="serverBrand" prefWidth="75.0" text="Marka">
+                <TableColumn prefWidth="75.0" text="Marka">
                     <cellValueFactory>
                         <PropertyValueFactory property="deviceBrand"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn fx:id="serverModel" prefWidth="125.0" text="Model">
+                <TableColumn prefWidth="125.0" text="Model">
                     <cellValueFactory>
                         <PropertyValueFactory property="deviceModel"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn fx:id="serverNrOfDisks" prefWidth="75.0" text="Dyski">
-                   <cellValueFactory>
-                      <PropertyValueFactory property="serverMountedDisks"/>
-                   </cellValueFactory>
+                <TableColumn prefWidth="75.0" text="Dyski">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="serverMountedDisks"/>
+                    </cellValueFactory>
                 </TableColumn>
-                <TableColumn fx:id="serverRamMemory" prefWidth="75.0" text="RAM">
-                   <cellValueFactory>
-                      <PropertyValueFactory property="serverMaxRAMMemory"/>
-                   </cellValueFactory>
+                <TableColumn prefWidth="75.0" text="RAM">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="serverMaxRAMMemory"/>
+                    </cellValueFactory>
                 </TableColumn>
-                <TableColumn fx:id="serverPosition" prefWidth="125.0" text="poz. w szafie rack">
-                   <cellValueFactory>
-                      <PropertyValueFactory property="serverPositionInRack"/>
-                   </cellValueFactory>
+                <TableColumn prefWidth="125.0" text="poz. w szafie rack">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="serverPositionInRack"/>
+                    </cellValueFactory>
                 </TableColumn>
             </columns>
-           <items>
-              <FXCollections fx:factory="observableArrayList">
-              </FXCollections>
-           </items>
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                </FXCollections>
+            </items>
         </TableView>
     </center>
 </BorderPane>

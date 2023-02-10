@@ -47,39 +47,39 @@
     <center>
         <TableView fx:id="rackTableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <columns>
-                <TableColumn fx:id="rackID" prefWidth="75.0" text="Id szafy">
+                <TableColumn prefWidth="75.0" text="Id szafy">
                     <cellValueFactory>
                         <PropertyValueFactory property="deviceId"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn fx:id="rackBrand" prefWidth="75.0" text="Marka">
+                <TableColumn prefWidth="75.0" text="Marka">
                     <cellValueFactory>
                         <PropertyValueFactory property="deviceBrand"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn fx:id="rackModel" prefWidth="125.0" text="Model">
+                <TableColumn prefWidth="125.0" text="Model">
                     <cellValueFactory>
                         <PropertyValueFactory property="deviceModel"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn fx:id="rackSerialNumber" prefWidth="75.0" text="Nr seryjny">
+                <TableColumn prefWidth="75.0" text="Nr seryjny">
                     <cellValueFactory>
                         <PropertyValueFactory property="deviceSerialNumber"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn fx:id="rackListVolume" prefWidth="125.0" text="Pojemność (U)">
+                <TableColumn prefWidth="125.0" text="Pojemność (U)">
                     <cellValueFactory>
                         <PropertyValueFactory property="rackVolume"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn fx:id="rackInUse" prefWidth="75.0" text="W użyciu?">
+                <TableColumn prefWidth="75.0" text="W użyciu?">
                     <cellValueFactory>
                         <PropertyValueFactory property="deviceInUse"/>
                     </cellValueFactory>
                 </TableColumn>
             </columns>
             <items>
-                <FXCollections fx:factory="observableArrayList" >
+                <FXCollections fx:factory="observableArrayList">
                 </FXCollections>
             </items>
         </TableView>

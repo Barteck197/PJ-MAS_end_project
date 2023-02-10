@@ -68,6 +68,7 @@ public class RackController {
 
             rackServersObservableList = FXCollections.
                     observableArrayList(viewRack.getServers());
+            // Dodanie serwerów przypisanych do szafy do widoku listy
             rackServers.setItems(rackServersObservableList);
 //            System.out.println(rackServers.getItems());
 

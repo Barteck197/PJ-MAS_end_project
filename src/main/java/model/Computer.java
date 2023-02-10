@@ -15,17 +15,13 @@ public class Computer extends ObjectPlus {
 
     private List<Software> computerInstaledSoftware;
 
-    // Lista serwerów przypisanych do komputera
-    private List<Server> servers = new ArrayList<>();
+
 
     // Lista laptopów przypisanych do komputera
     private List<Laptop> laptops = new ArrayList<>();
 
     // Lista wszystkich laptopoów
     private static Set<Laptop> allLaptops = new HashSet<>();
-
-    // Lista wszystkich serwerów
-    private static Set<Server> allServers = new HashSet<>();
 
     /**
      * Konstruktor do tworzenia obiektów klasy Komputer
@@ -80,22 +76,6 @@ public class Computer extends ObjectPlus {
             }
             laptops.add(lap);
             allLaptops.add(lap);
-        }
-    }
-
-    /**
-     * Tworzenie kompozycji z obiektem serwer
-     *
-     * @param srv serwer do dodania
-     * @throws Exception wyjątek jeśli serwer jest już przypisany do jakiegoś komputera
-     */
-    public void addServer(Server srv) throws Exception {
-        if (!servers.contains(srv)) {
-            if (allServers.contains(srv)) {
-                throw new Exception("Nie można dodać serwera");
-            }
-            servers.add(srv);
-            allServers.add(srv);
         }
     }
 }
